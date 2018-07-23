@@ -1,0 +1,37 @@
+.wp-block-gbt-posts-grid
+{
+	margin-bottom: 0.5rem;
+
+	.gbt_shortcode_blog_posts
+	{
+		&.full
+		{
+			width: 100vw;
+			padding: 0 32px;
+			margin-left: 50%;
+			transform: translateX(-50%);
+
+			@media all and (max-width: 639px) {
+				padding: 0 1.75rem;
+			}
+		}
+
+		&.wide
+		{
+			@media all and (min-width: 1024px) {
+				width: 75vw;
+				margin-left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		.gbt_shortcode_blog_post .gbt_shortcode_blog_posts_image .wp-post-image.size-large
+		{
+			margin-bottom: 24px;
+
+			@media all and (max-width: 639px) {
+		    	display: none;
+		    }
+		}
+	}
+}
