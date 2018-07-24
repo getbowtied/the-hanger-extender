@@ -17,7 +17,7 @@
 	var ColorPalette		= wp.components.ColorPalette;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/slider', {
+	registerBlockType( 'getbowtied/th-slider', {
 		title: i18n.__( 'Slider' ),
 		icon: 'slides',
 		category: 'thehanger',
@@ -38,14 +38,6 @@
 				default: true
 			},
 			slide_numbers_color: {
-				type: 'string',
-				default: '#fff'
-			},
-			nav_arrows: {
-				type: 'boolean',
-				default: true
-			},
-			nav_arrows_color: {
 				type: 'string',
 				default: '#fff'
 			},
@@ -118,7 +110,7 @@
 						PanelBody, 
 						{ 
 							key: 'slider-numbers-settings-panel',
-							title: 'Pagination',
+							title: 'Slide Numbers',
 							initialOpen: false,
 							style:
 							{
@@ -129,7 +121,7 @@
 							ToggleControl,
 							{
 								key: "slide-numbers-toggle",
-	              				label: i18n.__( 'Pagination Bullets' ),
+	              				label: i18n.__( 'Slide Numbers' ),
 	              				checked: attributes.slide_numbers,
 	              				onChange: function() {
 									props.setAttributes( { slide_numbers: ! attributes.slide_numbers } );
@@ -141,7 +133,7 @@
 							PanelColor,
 							{
 								key: 'slider-numbers-color-panel',
-								title: i18n.__( 'Pagination Bullets Color' ),
+								title: i18n.__( 'Slide Numbers Color' ),
 								colorValue: attributes.slide_numbers_color,
 							},
 							el(
@@ -152,49 +144,6 @@
 									value: attributes.slide_numbers_color,
 									onChange: function( newColor) {
 										props.setAttributes( { slide_numbers_color: newColor } );
-									},
-								} 
-							),
-						),
-					),
-					el( 
-						PanelBody, 
-						{ 
-							key: 'slider-nav-arrows-settings-panel',
-							title: 'Navigation Arrows',
-							initialOpen: false,
-							style:
-							{
-							    borderBottom: '1px solid #e2e4e7'
-							}
-						},
-						el(
-							ToggleControl,
-							{
-								key: "slide-nav-arrows-toggle",
-	              				label: i18n.__( 'Navigation Arrows' ),
-	              				checked: attributes.nav_arrows,
-	              				onChange: function() {
-									props.setAttributes( { nav_arrows: ! attributes.nav_arrows } );
-								},
-							}
-						),
-						attributes.nav_arrows == true &&
-						el(
-							PanelColor,
-							{
-								key: 'slider-nav-arrows-color-panel',
-								title: i18n.__( 'Navigation Arrows Color' ),
-								colorValue: attributes.nav_arrows_color,
-							},
-							el(
-								ColorPalette, 
-								{
-									key: 'slider-nav-arrows-color-pallete',
-									colors: colors,
-									value: attributes.nav_arrows_color,
-									onChange: function( newColor) {
-										props.setAttributes( { nav_arrows_color: newColor } );
 									},
 								} 
 							),
@@ -227,7 +176,7 @@
 					InnerBlock,
 					{
 						key: 'inner-block',
-						allowedBlocksNames: [ 'getbowtied/slide' ],
+						allowedBlocksNames: [ 'getbowtied/th-slide' ],
 					},
 				),
 			];
@@ -258,42 +207,6 @@
 								className: 'swiper-wrapper'
 							},
 							el( InnerBlock.Content, { key: 'slide-content' } )
-						),
-						!! attributes.nav_arrows && el(
-							'div',
-							{
-								key: 'swiper-button-prev',
-								className: 'swiper-button-prev',
-								style:
-								{
-									color: attributes.nav_arrows_color
-								}
-							},
-							el(
-								'i',
-								{
-									key: 'spk-icon-left-arrow-thin-large',
-									className: 'spk-icon spk-icon-left-arrow-thin-large',
-								}
-							)
-						),
-						!! attributes.nav_arrows && el(
-							'div',
-							{
-								key: 'swiper-button-next',
-								className: 'swiper-button-next',
-								style:
-								{
-									color: attributes.nav_arrows_color
-								}
-							},
-							el(
-								'i',
-								{
-									key: 'spk-icon-right-arrow-thin-large',
-									className: 'spk-icon spk-icon-right-arrow-thin-large',
-								}
-							)
 						),
 						!! attributes.slide_numbers && el(
 							'div',

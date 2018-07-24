@@ -1,4 +1,4 @@
-.editor-block-list__block[data-type="getbowtied/slider"][data-align="full"]
+.editor-block-list__block[data-type="getbowtied/th-slider"][data-align="full"]
 {
 	.editor-block-list__block
 	{
@@ -6,7 +6,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"][data-align="wide"]
+.editor-block-list__block[data-type="getbowtied/th-slider"][data-align="wide"]
 {
 	.editor-block-list__block
 	{
@@ -200,7 +200,7 @@
 
     			.editor-slide-button .slide-button-text
     			{
-    				margin: 20px auto 0;
+    				margin: 35px auto 0;
     			}
     		}
 
@@ -210,7 +210,7 @@
 
     			.editor-slide-button .slide-button-text
     			{
-    				margin: 20px 0 0 auto;
+    				margin: 35px 0 0 auto;
     			}
     		}
 
@@ -226,24 +226,27 @@
 
 	.editor-slide-title
 	{
-		margin-bottom: 15px;
-
 		h3
 		{
 			font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
-			font-size: 14px;
+			font-size: 40px;
 			font-weight: normal;
 		}
 	}
 
-	.editor-slide-description h4
+	.editor-slide-description
 	{
-		font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
-		font-size: 24px;
+		margin-bottom: 20px;
+
+		h4
+		{
+			font-family: BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
+			font-size: 13px;
+		}
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"]:not(.is-selected-parent):not(.is-typing)
+.editor-block-list__block[data-type="getbowtied/th-slider"]:not(.is-selected-parent):not(.is-typing)
 {
 	.editor-inner-blocks .editor-block-list__layout .editor-block-list__block:first-child
 	{
@@ -269,7 +272,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slider"]
+.editor-block-list__block[data-type="getbowtied/th-slider"]
 {
 	> .editor-block-list__block-edit
 	{
@@ -398,7 +401,7 @@
 	}
 }
 
-.editor-block-list__block[data-type="getbowtied/slide"]
+.editor-block-list__block[data-type="getbowtied/th-slide"]
 {
 
 	>.editor-block-settings-menu
@@ -418,9 +421,12 @@
 
 	.slide-button-text
 	{
-		padding: 1rem;
     	width: fit-content;
-    	margin-top: 20px;
+    	margin-top: 35px;
+    	font-weight: normal;
+    	text-transform: uppercase;
+    	padding-bottom: 8px;
+    	border-bottom: 3px solid;
 	}
 
 	.editor-block-list__block-edit,

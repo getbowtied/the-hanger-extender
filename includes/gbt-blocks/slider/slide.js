@@ -23,11 +23,11 @@
 	var Tooltip				= wp.components.Tooltip;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/slide', {
+	registerBlockType( 'getbowtied/th-slide', {
 		title: i18n.__( 'Slide' ),
 		icon: 'slides',
 		category: 'thehanger',
-		parent: [ 'getbowtied/slider' ],
+		parent: [ 'getbowtied/th-slider' ],
 		attributes: {
 		    imgURL: {
 	            type: 'string',
@@ -46,25 +46,9 @@
 	        	type: 'string',
 	        	default: 'Slide Title',
 	        },
-	        title_size: {
-	        	type: 'number',
-	        	default: 73,
-	        },
-	        title_font: {
-	        	type: 'string',
-	        	default: 'primary_font',
-	        },
 	        description: {
 	        	type: 'string',
-	        	default: 'Slide Description'
-	        },
-	        description_size: {
-	        	type: 'number',
-	        	default: 16,
-	        },
-	        description_font: {
-	        	type: 'string',
-	        	default: 'secondary_font',
+	        	default: 'Slide Subtitle'
 	        },
 	        text_color: {
 	        	type: 'string',
@@ -81,14 +65,6 @@
 	        button_toggle: {
 	        	type: 'boolean',
 	        	default: true
-	        },
-	        button_text_color: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        button_bg_color: {
-	        	type: 'string',
-	        	default: '#000'
 	        },
 	        bg_color: {
 	        	type: 'string',
@@ -121,72 +97,6 @@
 					{ 
 						key: 'slide-inspector'
 					},
-					el( 
-						PanelBody, 
-						{ 
-							key: 'slide-text-settings-panel',
-							title: 'Title & Description',
-							initialOpen: false,
-							style:
-							{
-							    borderBottom: '1px solid #e2e4e7'
-							}
-						},
-						el(
-							RangeControl,
-							{
-								key: "slide-title-font-size",
-								value: attributes.title_size,
-								allowReset: false,
-								initialPosition: 32,
-								min: 10,
-								max: 72,
-								label: i18n.__( 'Title Font Size' ),
-								onChange: function( newNumber ) {
-									props.setAttributes( { title_size: newNumber } );
-								},
-							}
-						),
-						el(
-							SelectControl,
-							{
-								key: "slide-title-font-family",
-								options: [{value: 'primary_font', label: 'Primary Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
-								label: i18n.__( 'Title Font Family (preview in frontend)' ),
-								value: attributes.title_font,
-								onChange: function( newSelection ) {
-									props.setAttributes( { title_font: newSelection } );
-								},
-							}
-						),
-						el(
-							RangeControl,
-							{
-								key: "slide-description-font-size",
-								value: attributes.description_size,
-								allowReset: false,
-								initialPosition: 14,
-								min: 10,
-								max: 72,
-								label: i18n.__( 'Description Font Size' ),
-								onChange: function( newNumber ) {
-									props.setAttributes( { description_size: newNumber } );
-								},
-							}
-						),
-						el(
-							SelectControl,
-							{
-								key: "slide-description-font-family",
-								options: [{value: 'primary_font', label: 'Primary Font'}, {value: 'secondary_font', label: 'Secondary Font'}],
-								label: i18n.__( 'Description Font Family (preview in frontend)' ),
-								value: attributes.description_font,
-								onChange: function( newSelection ) {
-									props.setAttributes( { description_font: newSelection } );
-								},
-							}
-						),
-					),
 					el( 
 						PanelBody, 
 						{ 
@@ -270,44 +180,6 @@
 									props.setAttributes( { button_toggle: ! attributes.button_toggle } );
 								},
 							}
-						),
-						!! attributes.button_toggle && el(
-							PanelColor,
-							{
-								key: 'slide-button-text-color-panel',
-								title: i18n.__( 'Button Text Color' ),
-								colorValue: attributes.text_color,
-							},
-							el(
-								ColorPalette, 
-								{
-									key: 'slide-button-text-color-palette',
-									colors: colors,
-									value: attributes.button_text_color,
-									onChange: function( newColor) {
-										props.setAttributes( { button_text_color: newColor } );
-									},
-								} 
-							),
-						),
-						!! attributes.button_toggle && el(
-							PanelColor,
-							{
-								key: 'slide-button-bg-color-panel',
-								title: i18n.__( 'Button Background Color' ),
-								colorValue: attributes.text_color,
-							},
-							el(
-								ColorPalette, 
-								{
-									key: 'slide-button-bg-color-palette',
-									colors: colors,
-									value: attributes.button_bg_color,
-									onChange: function( newColor) {
-										props.setAttributes( { button_bg_color: newColor } );
-									},
-								} 
-							),
 						),
 					),
 				),
@@ -443,33 +315,6 @@
 							el(
 								'div',
 								{
-									key: 'editor-slide-title',
-									className: 'editor-slide-title',
-								},
-								el(
-									RichText, 
-									{
-										key: 'slide-title',
-										style:
-										{ 
-											color: attributes.text_color,
-											fontSize: attributes.title_size + 'px'
-										},
-										format: 'string',
-										className: 'slide-title',
-										formattingControls: [],
-										tagName: 'h1',
-										value: attributes.title,
-										placeholder: i18n.__( 'Add Title' ),
-										onChange: function( newTitle) {
-											props.setAttributes( { title: newTitle } );
-										}
-									}
-								),
-							),
-							el(
-								'div',
-								{
 									key: 'editor-slide-description',
 									className: 'editor-slide-description',
 								},
@@ -479,8 +324,7 @@
 										key: 'slide-description',
 										style:
 										{
-											color: attributes.text_color,
-											fontSize: attributes.description_size + 'px'
+											color: attributes.text_color
 										},
 										className: 'slide-description',
 										format: 'string',
@@ -490,6 +334,32 @@
 										placeholder: i18n.__( 'Add Subtitle' ),
 										onChange: function( newSubtitle) {
 											props.setAttributes( { description: newSubtitle } );
+										}
+									}
+								),
+							),
+							el(
+								'div',
+								{
+									key: 'editor-slide-title',
+									className: 'editor-slide-title',
+								},
+								el(
+									RichText, 
+									{
+										key: 'slide-title',
+										style:
+										{ 
+											color: attributes.text_color
+										},
+										format: 'string',
+										className: 'slide-title',
+										formattingControls: [],
+										tagName: 'h1',
+										value: attributes.title,
+										placeholder: i18n.__( 'Add Title' ),
+										onChange: function( newTitle) {
+											props.setAttributes( { title: newTitle } );
 										}
 									}
 								),
@@ -506,8 +376,7 @@
 										key: 'slide-button-text',
 										style:
 										{
-											color: attributes.button_text_color,
-											backgroundColor: attributes.button_bg_color,
+											color: attributes.text_color
 										},
 										className: 'slide-button-text',
 										format: 'string',
