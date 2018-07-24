@@ -44,11 +44,11 @@
 	        },
 	        title: {
 	        	type: 'string',
-	        	default: 'Slide Title',
+	        	default: 'Slide Subtitle',
 	        },
 	        description: {
 	        	type: 'string',
-	        	default: 'Slide Subtitle'
+	        	default: 'Slide Title'
 	        },
 	        text_color: {
 	        	type: 'string',

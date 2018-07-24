@@ -61,11 +61,11 @@ register_block_type( 'getbowtied/th-slide', array(
 	    ),
 		'title' 			=> array(
 			'type'			=> 'string',
-			'default'		=> 'Slide Title',
+			'default'		=> 'Slide Subtitle',
 		),
 		'description'		=> array(
 			'type'			=> 'string',
-			'default'		=> 'Slide Subtitle',
+			'default'		=> 'Slide Title',
 		),
 		'text_color'		=> array(
 			'type'			=> 'string',
@@ -101,8 +101,8 @@ function getbowtied_render_slide( $attributes ) {
 		'imgURL'					=> '',
        	'imgID' 					=> null,
 	    'imgAlt'					=> '',
-		'title' 					=> 'Slide Title',
-		'description' 				=> 'Slide Description',
+		'title' 					=> 'Slide Subtitle',
+		'description' 				=> 'Slide Title',
 		'text_color'				=> '#000',
 		'button_text' 				=> 'Button Text',
 		'button_url'				=> '',
