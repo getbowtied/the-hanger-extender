@@ -123,18 +123,18 @@ function getbowtied_render_slide( $attributes ) {
 			$class = 'center-align';
 	}
 
-	if (!empty($title))
-	{
-		$title = '<h1 class="slide-title" style="color:'.$text_color.';">'.$title.'</h1>';
-	} else {
-		$title = "";
-	}
-
 	if (!empty($description))
 	{
-		$description = '<p class="slide-description" style="color:'.$text_color.';">'.$description.'</p>';
+		$description = '<h1 class="slide-title" style="color:'.$text_color.';">'.$description.'</h1>';
 	} else {
 		$description = "";
+	}
+
+	if (!empty($title))
+	{
+		$title = '<p class="slide-description" style="color:'.$text_color.';">'.$title.'</p>';
+	} else {
+		$title = "";
 	}
 
 	if ($button_toggle && !empty($button_text))
@@ -165,8 +165,8 @@ function getbowtied_render_slide( $attributes ) {
 			'.$slide_link.'
 			<div class="slider-content" data-swiper-parallax="-1000">
 				<div class="slider-content-wrapper">
-					'.$title.'
 					'.$description.'
+					'.$title.'
 					'.$button.'
 				</div>
 			</div>
