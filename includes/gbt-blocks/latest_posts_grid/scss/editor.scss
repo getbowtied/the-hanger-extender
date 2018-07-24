@@ -1,3 +1,11 @@
+.editor-block-list__block[data-type="getbowtied/th-latest-posts-grid"][data-align="full"]
+{
+	.wp-block-gbt-posts-grid
+	{
+		padding: 0 30px;
+	}
+}
+
 .wp-block-gbt-posts-grid
 {
 	.latest_posts_grid_wrapper
@@ -226,7 +234,7 @@
 			display: block;
 			overflow: hidden;
 			position: relative;
-			height: 150px;
+			height: 100%;
 			width: 100%;
 			margin-bottom: 15px;
 			

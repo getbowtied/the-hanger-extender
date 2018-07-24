@@ -37,7 +37,7 @@ if ( ! function_exists( 'getbowtied_th_socials_assets' ) ) {
     }
 }
 
-register_block_type( 'getbowtied/socials', array(
+register_block_type( 'getbowtied/th-socials', array(
 	'attributes'     			=> array(
 		'items_align'			=> array(
 			'type'				=> 'string',

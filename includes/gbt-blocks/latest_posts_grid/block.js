@@ -38,7 +38,7 @@
 	getCategories(categories_list);
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/latest-posts-grid', {
+	registerBlockType( 'getbowtied/th-latest-posts-grid', {
 		title: i18n.__( 'Latest Posts Grid' ),
 		icon: 'grid-view',
 		category: 'thehanger',
@@ -79,7 +79,7 @@
 				columns  = columns  || attributes.columns;
 
 				var data = {
-					action 		: 'getbowtied_render_backend_latest_posts_grid',
+					action 		: 'getbowtied_render_backend_th_latest_posts_grid',
 					attributes  : {
 						'category' : category,
 						'number'   : number,

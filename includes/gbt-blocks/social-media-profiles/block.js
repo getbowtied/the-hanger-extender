@@ -9,7 +9,7 @@
 	var TextControl 		= components.TextControl;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/socials', {
+	registerBlockType( 'getbowtied/th-socials', {
 		title: i18n.__( 'Social Media Profiles' ),
 		icon: 'share',
 		category: 'thehanger',

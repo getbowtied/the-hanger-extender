@@ -5,10 +5,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_latest_posts_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_th_latest_posts_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_latest_posts_editor_assets' ) ) {
-	function getbowtied_latest_posts_editor_assets() {
+if ( ! function_exists( 'getbowtied_th_latest_posts_editor_assets' ) ) {
+	function getbowtied_th_latest_posts_editor_assets() {
 		
 		wp_enqueue_script(
 			'getbowtied-latest-posts',
@@ -25,10 +25,10 @@ if ( ! function_exists( 'getbowtied_latest_posts_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_latest_posts_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_th_latest_posts_assets' );
 
-if ( ! function_exists( 'getbowtied_latest_posts_assets' ) ) {
-	function getbowtied_latest_posts_assets() {
+if ( ! function_exists( 'getbowtied_th_latest_posts_assets' ) ) {
+	function getbowtied_th_latest_posts_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-latest-posts-grid-css',
@@ -38,7 +38,7 @@ if ( ! function_exists( 'getbowtied_latest_posts_assets' ) ) {
 	}
 }
 
-register_block_type( 'getbowtied/latest-posts-grid', array(
+register_block_type( 'getbowtied/th-latest-posts-grid', array(
 	'attributes'      					=> array(
 		'number'						=> array(
 			'type'						=> 'number',
@@ -58,10 +58,10 @@ register_block_type( 'getbowtied/latest-posts-grid', array(
 		),
 	),
 
-	'render_callback' => 'getbowtied_render_frontend_latest_posts_grid',
+	'render_callback' => 'getbowtied_render_frontend_th_latest_posts_grid',
 ) );
 
-function getbowtied_render_frontend_latest_posts_grid( $attributes ) {
+function getbowtied_render_frontend_th_latest_posts_grid( $attributes ) {
 
 	extract( shortcode_atts( array(
 		'number'	=> '12',
@@ -161,8 +161,8 @@ function getbowtied_render_frontend_latest_posts_grid( $attributes ) {
 
 }
 
-add_action('wp_ajax_getbowtied_render_backend_latest_posts_grid', 'getbowtied_render_backend_latest_posts_grid');
-function getbowtied_render_backend_latest_posts_grid() {
+add_action('wp_ajax_getbowtied_render_backend_th_latest_posts_grid', 'getbowtied_render_backend_th_latest_posts_grid');
+function getbowtied_render_backend_th_latest_posts_grid() {
 
 	$attributes = $_POST['attributes'];
 	$output = '';
@@ -200,20 +200,25 @@ function getbowtied_render_backend_latest_posts_grid() {
 	                			$output .= 'el( "span", { key: "latest_posts_grid_overlay_' . $counter . '", className: "latest_posts_grid_overlay" } ),';
 
 	                			if ( has_post_thumbnail($post->ID)) :
-	                				$image_id = get_post_thumbnail_id($post->ID);
+
+									$image_id = get_post_thumbnail_id($post->ID);
 									$image_url = wp_get_attachment_image_src($image_id,'large', true);
 
-									$output .= 'el( "span", { key: "latest_posts_grid_img_' . $counter . '", className: "latest_posts_grid_img", style: { backgroundImage: "url(' . esc_url($image_url[0]) . ')" } } )';
+									if( $image_url ) :
 
-								else :
+										$output .= 'el( "div", { key: "gbt_shortcode_blog_posts_image_' . $counter . '", className: "gbt_shortcode_blog_posts_image" },';
+											
+											$output .= 'el( "img", { src: "' . $image_url[0] . '" } ),';
 
-									$output .= 'el( "span", { key: "latest_posts_grid_noimg_' . $counter . '", className: "latest_posts_grid_noimg"} )';
+										$output .= '),';
+
+									endif;
 
 								endif;
 
 	                		$output .= '),';
 
-							$output .= 'el( "a", { key: "latest_posts_grid_date_' . $counter . '", className: "latest_posts_grid_date" }, "' . esc_html(get_the_date( '', $post->ID )) . '"),';
+							$output .= 'el( "p", { key: "latest_posts_grid_date_' . $counter . '", className: "latest_posts_grid_date" }, "' . esc_html(get_the_date( '', $post->ID )) . '"),';
 
 							$output .= 'el( "span", { key: "latest_posts_grid_title_' . $counter . '", className: "latest_posts_grid_title" }, "' . esc_html($post->post_title) . '" )';
 
