@@ -158,7 +158,6 @@ function getbowtied_render_frontend_th_latest_posts_grid( $attributes ) {
 	wp_reset_query();
 
 	return ob_get_clean();
-
 }
 
 add_action('wp_ajax_getbowtied_render_backend_th_latest_posts_grid', 'getbowtied_render_backend_th_latest_posts_grid');
