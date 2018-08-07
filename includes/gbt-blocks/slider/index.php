@@ -125,14 +125,14 @@ function getbowtied_render_slide( $attributes ) {
 
 	if (!empty($description))
 	{
-		$description = '<h1 class="slide-title" style="color:'.$text_color.';">'.$description.'</h1>';
+		$description = '<h2 class="slide-title" style="color:'.$text_color.';">'.$description.'</h2>';
 	} else {
 		$description = "";
 	}
 
 	if (!empty($title))
 	{
-		$title = '<p class="slide-description" style="color:'.$text_color.';">'.$title.'</p>';
+		$title = '<h3 class="slide-description" style="color:'.$text_color.';">'.$title.'</h3>';
 	} else {
 		$title = "";
 	}

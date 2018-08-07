@@ -14,6 +14,8 @@
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%); }
+  .wp-block-gbt-slider .shortcode-slider-pagination {
+    width: 9% !important; }
 
 @media print, screen and (min-width: 40em) {
   .wp-block-getbowtied-th-slider .swiper-slide.center-align .slider-content-wrapper {
