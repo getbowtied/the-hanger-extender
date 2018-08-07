@@ -25,13 +25,24 @@
 			}
 		}
 
-		.gbt_shortcode_blog_post .gbt_shortcode_blog_posts_image .wp-post-image.size-large
+		.gbt_shortcode_blog_post .gbt_shortcode_blog_posts_image
 		{
-			margin-bottom: 24px;
+			transition: transform .3s ease-in-out;
 
-			@media all and (max-width: 639px) {
-		    	display: none;
-		    }
+			.wp-post-image.size-large
+			{
+				margin-bottom: 24px;
+
+				@media all and (max-width: 639px) {
+			    	display: none;
+			    }
+			}
+
+			&:hover
+			{
+				transform: scale3d(0.98, 0.98, 0.98);
+				transition: transform .3s ease-in-out;
+			}
 		}
 	}
 }
