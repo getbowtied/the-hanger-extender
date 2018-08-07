@@ -195,9 +195,7 @@ function getbowtied_render_backend_th_latest_posts_grid() {
 	                	$output .= 'el( "a", { key: "latest_posts_grid_link_' . $counter . '", className: "latest_posts_grid_link" },';
 
 	                		$output .= 'el( "span", { key: "latest_posts_grid_img_container_' . $counter . '", className: "latest_posts_grid_img_container"},';
-	                		
-	                			$output .= 'el( "span", { key: "latest_posts_grid_overlay_' . $counter . '", className: "latest_posts_grid_overlay" } ),';
-
+	                	
 	                			if ( has_post_thumbnail($post->ID)) :
 
 									$image_id = get_post_thumbnail_id($post->ID);
