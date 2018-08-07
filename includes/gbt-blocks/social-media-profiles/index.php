@@ -43,6 +43,14 @@ register_block_type( 'getbowtied/th-socials', array(
 			'type'				=> 'string',
 			'default'			=> 'left',
 		),
+        'fontSize'              => array(
+            'type'              => 'number',
+            'default'           => '16',
+        ),
+        'fontColor'             => array(
+            'type'              => 'string',
+            'default'           => '#000',
+        ),
 	),
 
 	'render_callback' => 'getbowtied_th_render_frontend_socials',
@@ -154,7 +162,9 @@ function getbowtied_th_render_frontend_socials($attributes) {
 
 	extract(shortcode_atts(
 		array(
-			"items_align" => 'left'
+			'items_align' => 'left',
+            'fontSize'    => '16',
+            'fontColor'   => '#000',
 		), $attributes));
     ob_start();
 
@@ -168,7 +178,7 @@ function getbowtied_th_render_frontend_socials($attributes) {
 
         	if ( GBT_Opt::getOption($social['link']) != "" ) {
         		$output .= '<li>';
-        		$output .= '<a target="_blank" href="' . GBT_Opt::getOption($social['link']) . '">';
+        		$output .= '<a target="_blank" style="color:'.$fontColor.';font-size:'.$fontSize.'px" href="' . GBT_Opt::getOption($social['link']) . '">';
                 $output .= '<i class="' . $social['icon'] . '"></i>';
         		$output .= '<span class="' . $social['name'] . '"></span>';
         		$output .= '</a></li>';
