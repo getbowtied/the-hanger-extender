@@ -15,10 +15,7 @@ Extends the functionality of The Hanger with theme specific shortcodes and page 
 
 = 1.2 =
 - Gutenberg Compatibility
-- Gutenberg Custom Blocks:
-	- Slider
-	- Latest Posts Grid
-	- Social Media Profiles
+- Gutenberg Custom Blocks: Slider, Latest Posts Grid, Social Media Profiles
 
 = 1.1 =
 - Various Fixes
