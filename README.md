@@ -1,4 +1,4 @@
-=== The Hanger Extender ===
+# The Hanger Extender
 Contributors: getbowtied, vanesareinerth, adrianlbs
 Tags: gutenberg, blocks
 Requires at least: 4.9
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
 
-== Changelog ==
+## Changelog
 
-= 1.0 =
+* 1.0
 - Initial Version
