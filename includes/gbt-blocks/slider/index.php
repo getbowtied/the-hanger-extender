@@ -4,10 +4,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-add_action( 'enqueue_block_editor_assets', 'getbowtied_slider_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'getbowtied_th_slider_editor_assets' );
 
-if ( ! function_exists( 'getbowtied_slider_editor_assets' ) ) {
-	function getbowtied_slider_editor_assets() {
+if ( ! function_exists( 'getbowtied_th_slider_editor_assets' ) ) {
+	function getbowtied_th_slider_editor_assets() {
 
 		wp_enqueue_script(
 			'getbowtied-slide',
@@ -35,10 +35,10 @@ if ( ! function_exists( 'getbowtied_slider_editor_assets' ) ) {
 	}
 }
 
-add_action( 'enqueue_block_assets', 'getbowtied_slider_assets' );
+add_action( 'enqueue_block_assets', 'getbowtied_th_slider_assets' );
 
-if ( ! function_exists( 'getbowtied_slider_assets' ) ) {
-	function getbowtied_slider_assets() {
+if ( ! function_exists( 'getbowtied_th_slider_assets' ) ) {
+	function getbowtied_th_slider_assets() {
 		
 		wp_enqueue_style(
 			'getbowtied-slider-css',
@@ -93,10 +93,10 @@ register_block_type( 'getbowtied/th-slide', array(
 		)
 	),
 
-	'render_callback' => 'getbowtied_render_slide',
+	'render_callback' => 'getbowtied_th_render_slide',
 ) );
 
-function getbowtied_render_slide( $attributes ) {
+function getbowtied_th_render_slide( $attributes ) {
 	extract(shortcode_atts(array(
 		'imgURL'					=> '',
        	'imgID' 					=> null,
