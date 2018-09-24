@@ -3,7 +3,7 @@
 	 * Plugin Name: The Hanger Extender
 	 * Plugin URI: https://thehanger.wp-theme.design/
 	 * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
-	 * Version: 1.2
+	 * Version: 1.3
 	 * Author: GetBowtied
 	 * Author URI: https://getbowtied.com
 	 * Requires at least: 4.9
@@ -55,7 +55,7 @@ if(!function_exists('github_plugin_updater')) {
 				'zip_url' 			 => 'https://github.com/getbowtied/the-hanger-extender/zipball/master',
 				'sslverify'			 => true,
 				'requires'			 => '4.9',
-				'tested'			 => '4.9.7',
+				'tested'			 => '4.9.8',
 				'readme'			 => 'README.txt',
 				'access_token'		 => '',
 			);
