@@ -1,21 +1,20 @@
 ( function( blocks, components, editor, i18n, element ) {
 
-	var el = element.createElement;
+	const el = element.createElement;
 
 	/* Blocks */
-	var registerBlockType   = blocks.registerBlockType;
+	const registerBlockType   	= blocks.registerBlockType;
 
-	var AlignmentToolbar	= editor.AlignmentToolbar;
-	var BlockControls       = editor.BlockControls;
-	var InspectorControls   = editor.InspectorControls;
+	const AlignmentToolbar		= editor.AlignmentToolbar;
+	const BlockControls       	= editor.BlockControls;
+	const InspectorControls   	= editor.InspectorControls;
+	const ColorSettings			= editor.PanelColorSettings;
 
-	var TextControl 		= components.TextControl;
-	var ColorPalette	    = components.ColorPalette;
-	var PanelColor			= components.PanelColor;
-	var RangeControl		= components.RangeControl;
+	const TextControl 			= components.TextControl;
+	const RangeControl			= components.RangeControl;
 
 	/* Register Block */
-	registerBlockType( 'getbowtied/th-socials', {
+	registerBlockType( 'getbowtied/th-social-media-profiles', {
 		title: i18n.__( 'Social Media Profiles' ),
 		icon: 'share',
 		category: 'thehanger',
@@ -28,7 +27,7 @@
 				type: 	 'string',
 				default: '#000'
 			},
-			items_align: {
+			align: {
 				type: 	 'string',
 				default: 'left'
 			},
@@ -38,27 +37,16 @@
 
 			var attributes = props.attributes;
 
-			var colors = [
-				{ name: 'red', 				color: '#d02e2e' },
-				{ name: 'orange', 			color: '#f76803' },
-				{ name: 'yellow', 			color: '#fbba00' },
-				{ name: 'green', 			color: '#43d182' },
-				{ name: 'blue', 			color: '#2594e3' },
-				{ name: 'white', 			color: '#ffffff' },
-				{ name: 'dark-gray', 		color: '#abb7c3' },
-				{ name: 'black', 			color: '#000' 	 },
-			];
-
 			return [
 				el( 
 					InspectorControls, 
 					{ 
-						key: 'th-socials-settings'
+						key: 'gbt_18_th_socials_settings'
 					},
 					el(
 						RangeControl,
 						{
-							key: "th-socials-font-size",
+							key: "gbt_18_th_socials_font_size",
 							value: attributes.fontSize,
 							allowReset: false,
 							initialPosition: 16,
@@ -71,37 +59,34 @@
 						}
 					),
 					el(
-						PanelColor,
+						ColorSettings,
 						{
-							key: 'th-socials-color-panel',
+							key: 'gbt_18_th_socials_icons_color',
 							title: i18n.__( 'Icons Color' ),
-							colorValue: attributes.fontColor,
-						},
-						el(
-							ColorPalette, 
-							{
-								key: 'th-socials-color-pallete',
-								colors: colors,
-								value: attributes.fontColor,
-								onChange: function( newColor) {
-									props.setAttributes( { fontColor: newColor } );
+							colorSettings: [
+								{ 
+									label: i18n.__( 'Icons Color' ),
+									value: attributes.fontColor,
+									onChange: function( newColor) {
+										props.setAttributes( { fontColor: newColor } );
+									},
 								},
-							} 
-						),
+							]
+						},
 					),
 				),
 				el(
 					BlockControls,
 					{ 
-						key: 'social-media-controls'
+						key: 'gbt_18_th_socials_alignment_controls'
 					},
 					el(
 						AlignmentToolbar, 
 						{
-							key: 'social-media-alignment',
-							value: attributes.items_align,
+							key: 'gbt_18_th_socials_alignment',
+							value: attributes.align,
 							onChange: function( newAlignment ) {
-								props.setAttributes( { items_align: newAlignment } );
+								props.setAttributes( { align: newAlignment } );
 							}
 						} 
 					),
@@ -109,20 +94,20 @@
 				el( 
 					'div',
 					{ 
-						key: 'wp-block-gbt-social-media',
-						className: 'wp-block-gbt-social-media'
+						key: 'gbt_18_th_editor_social_media_wrapper',
+						className: 'gbt_18_th_editor_social_media_wrapper'
 					},
 					el(
 						'h4',
 						{
-							key: 'wp-block-gbt-social-media-h4',
-							className: 'wp-block-gbt-social-media-h4',
+							key: 'gbt_18_th_editor_social_media_title',
+							className: 'gbt_18_th_editor_social_media_title',
 						},
 						el(
 							'span',
 							{
-								key: 'wp-block-gbt-social-media-dashicon',
-								className: 'dashicon dashicons-share',
+								key: 'gbt_18_th_editor_social_media_icon',
+								className: 'gbt_18_th_editor_social_media_icon dashicon dashicons-share',
 							},
 						),
 						i18n.__('Social Media Icons')
@@ -130,8 +115,8 @@
 					el(
 						'p',
 						{
-							key: 'wp-block-gbt-social-media-p',
-							className: 'wp-block-gbt-social-media-p',
+							key: 'gbt_18_th_editor_social_media_setup',
+							className: 'gbt_18_th_editor_social_media_setup',
 						},
 						i18n.__('Setup profile links under Appearance > Customize > Social Media')
 					),
@@ -149,6 +134,5 @@
 	window.wp.components,
 	window.wp.editor,
 	window.wp.i18n,
-	window.wp.element,
-	jQuery
+	window.wp.element
 );

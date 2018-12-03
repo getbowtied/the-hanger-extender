@@ -1,0 +1,46 @@
+.gbt_18_th_social_media_profiles
+{
+	ul
+	{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&.left {
+			text-align:left;
+		}
+
+		&.center {
+			text-align:center;
+		}
+
+		&.right {
+			text-align:right;
+		}
+
+		li
+		{
+			display: inline-block;
+			margin: 0;
+
+			a
+			{
+				display: flex;
+				padding: .75em;
+
+				span
+				{
+					display: none;
+				}
+			}
+
+			&:first-child
+			{
+				a
+				{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+}
