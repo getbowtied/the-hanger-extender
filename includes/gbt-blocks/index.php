@@ -27,4 +27,4 @@ if ( ! function_exists( 'getbowtied_product_blocks_scripts' ) ) {
 
 // require_once 'posts_grid/block.php';
 require_once 'social_media_profiles/block.php';
-// require_once 'slider/block.php';
+require_once 'slider/block.php';
