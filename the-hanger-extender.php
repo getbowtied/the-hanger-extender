@@ -36,9 +36,9 @@ include_once( 'includes/shortcodes/wc/woocommerce_products_user_bought.php' );
 /* Plugin Updater *************************************************************/
 /******************************************************************************/
 
-add_action( 'init', 'github_plugin_updater' );
-if(!function_exists('github_plugin_updater')) {
-	function github_plugin_updater() {
+add_action( 'init', 'github_th_plugin_updater' );
+if(!function_exists('github_th_plugin_updater')) {
+	function github_th_plugin_updater() {
 
 		include_once 'updater.php';
 
