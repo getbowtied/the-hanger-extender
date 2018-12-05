@@ -48,6 +48,11 @@
 
 			.gbt_shortcode_blog_posts_content {
 				.gbt_shortcode_blog_posts_title {
+					@media print, screen and (max-width: 40em) {
+						font-size: 18px;
+						line-height: 1.475rem;
+					}
+
 					@media print, screen and (min-width: 40em) {
 						font-size: 19px;
 						line-height: 1.675rem;
