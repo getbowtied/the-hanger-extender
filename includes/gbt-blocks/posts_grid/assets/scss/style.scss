@@ -18,29 +18,35 @@
 
 		&.wide
 		{
-			@media all and (min-width: 1024px) {
+			@media all and (min-width: 1570px) {
 				margin-left: calc( -75vw / 2 + 100% / 2 );
 			    margin-right: calc( -75vw / 2 + 100% / 2 );
 			    max-width: 75vw;
 			}
 		}
 
-		.gbt_shortcode_blog_post .gbt_shortcode_blog_posts_image
-		{
-			transition: transform .3s ease-in-out;
+		.gbt_18_th_posts_grid_img {
+			background-size: cover;
+		    display: block;
+		    overflow: hidden;
+		    position: relative;
+		    padding-bottom: 100%;
+		    width: 100%;
+	        margin-bottom: 1.5rem;
+	        transition: transform .3s ease-in-out;
 
-			.wp-post-image.size-large
-			{
-				margin-bottom: 24px;
+	        &:hover {
+        	    transform: scale3d(0.98, 0.98, 0.98);
+        	    transition: transform .3s ease-in-out;
+	        }
+		}
 
-				@media all and (max-width: 639px) {
-			    	display: none;
-			    }
+		.gbt_shortcode_blog_post {
+			@media all and (max-width: 639px) {
+				display: block;
 			}
 
-			&:hover
-			{
-				transform: scale3d(0.98, 0.98, 0.98);
+			.gbt_shortcode_blog_posts_image {
 				transition: transform .3s ease-in-out;
 			}
 		}

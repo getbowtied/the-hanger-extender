@@ -87,17 +87,19 @@ function gbt_18_th_render_frontend_posts_grid( $attributes ) {
 			                    
 			        <?php foreach($recentPosts as $post) : ?>
 			    
-			        	<div class="small-12 medium-4 large-<?php echo $post_columns; ?> columns">
+			        	<div class="small-12 medium-6 large-<?php echo $post_columns; ?> columns">
 
 							<div class="gbt_shortcode_blog_post">
 
-								<?php if ( has_post_thumbnail($post->ID) ) : ?>
-								<div class="gbt_shortcode_blog_posts_image">
+								<?php if ( has_post_thumbnail($post->ID) ) : 
+									$image_id = get_post_thumbnail_id($post->ID);
+									$image_url = wp_get_attachment_image_src($image_id,'large', true);
+								?>
 									<a href="<?php echo get_post_permalink($post->ID); ?>">
-										<?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
-										<?php echo get_the_post_thumbnail($post->ID, 'thumbnail'); ?>
+										<span class="gbt_18_th_posts_grid_img gbt_18_th_posts_grid_with_img" 
+											style="background-image: url(<?php echo esc_url($image_url[0]); ?> );">
+										</span>
 									</a>
-								</div>
 								<?php endif; ?>
 
 								<div class="gbt_shortcode_blog_posts_content">
