@@ -46,6 +46,15 @@
 				display: block;
 			}
 
+			.gbt_shortcode_blog_posts_content {
+				.gbt_shortcode_blog_posts_title {
+					@media print, screen and (min-width: 40em) {
+						font-size: 19px;
+						line-height: 1.675rem;
+					}
+				}
+			}
+
 			.gbt_shortcode_blog_posts_image {
 				transition: transform .3s ease-in-out;
 			}
