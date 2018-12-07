@@ -11,7 +11,7 @@ if ( ! function_exists( 'gbt_18_th_posts_grid_editor_assets' ) ) {
 		wp_register_script(
 			'gbt_18_th_posts_grid_script',
 			plugins_url( 'block.js', dirname(__FILE__) ),
-			array( 'wp-api-request', 'wp-blocks', 'wp-i18n', 'wp-element' )
+			array( 'wp-api-request', 'wp-blocks', 'wp-components', 'wp-editor', 'wp-i18n', 'wp-element' )
 		);
 
 		wp_register_style(
