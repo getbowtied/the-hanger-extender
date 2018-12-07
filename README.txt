@@ -13,6 +13,9 @@ Extends the functionality of The Hanger with theme specific shortcodes and page 
 
 == Changelog ==
 
+= 1.4 =
+- WordPress 5+ compatibility improvements
+
 = 1.3 =
 - Gutenberg Slider Block Fixes
 
