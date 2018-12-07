@@ -49,35 +49,41 @@
 						key: 'gbt_18_th_socials_settings'
 					},
 					el(
-						RangeControl,
+						'div',
 						{
-							key: "gbt_18_th_socials_font_size",
-							value: attributes.fontSize,
-							allowReset: false,
-							initialPosition: 16,
-							min: 10,
-							max: 36,
-							label: i18n.__( 'Icons Font Size' ),
-							onChange: function( newNumber ) {
-								props.setAttributes( { fontSize: newNumber } );
-							},
-						}
-					),
-					el(
-						ColorSettings,
-						{
-							key: 'gbt_18_th_socials_icons_color',
-							title: i18n.__( 'Icons Color' ),
-							colorSettings: [
-								{ 
-									label: i18n.__( 'Icons Color' ),
-									value: attributes.fontColor,
-									onChange: function( newColor) {
-										props.setAttributes( { fontColor: newColor } );
-									},
-								},
-							]
+							className: 'main-inspector-wrapper',
 						},
+						el(
+							RangeControl,
+							{
+								key: "gbt_18_th_socials_font_size",
+								value: attributes.fontSize,
+								allowReset: false,
+								initialPosition: 16,
+								min: 10,
+								max: 36,
+								label: i18n.__( 'Icons Font Size' ),
+								onChange: function( newNumber ) {
+									props.setAttributes( { fontSize: newNumber } );
+								},
+							}
+						),
+						el(
+							ColorSettings,
+							{
+								key: 'gbt_18_th_socials_icons_color',
+								title: i18n.__( 'Icons Color' ),
+								colorSettings: [
+									{ 
+										label: i18n.__( 'Icons Color' ),
+										value: attributes.fontColor,
+										onChange: function( newColor) {
+											props.setAttributes( { fontColor: newColor } );
+										},
+									},
+								]
+							},
+						),
 					),
 				),
 				el(
