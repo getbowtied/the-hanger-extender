@@ -95,7 +95,22 @@ if(!function_exists('gbt_th_gutenberg_blocks')) {
 
 		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || is_wp_version('>=', '5.0') ) {
 			include_once 'includes/gbt-blocks/index.php';
+		} else {
+			add_action( 'admin_notices', 'gbt_th_theme_warning' );
 		}
+	}
+}
+
+if( !function_exists('gbt_th_theme_warning') ) {
+	function gbt_th_theme_warning() {
+
+		?>
+
+		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+			<p>The Hanger Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
+		</div>
+
+		<?php
 	}
 }
 
