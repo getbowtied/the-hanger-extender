@@ -4,7 +4,7 @@
 //	Main Editor Styles
 //==============================================================================
 wp_enqueue_style(
-	'getbowtied-th-product-blocks-editor-styles',
+	'getbowtied-th-blocks-editor-styles',
 	plugins_url( 'assets/css/editor.css', __FILE__ ),
 	array( 'wp-edit-blocks' )
 );
@@ -12,12 +12,12 @@ wp_enqueue_style(
 //==============================================================================
 //	Main JS
 //==============================================================================
-add_action( 'admin_init', 'getbowtied_th_product_blocks_scripts' );
-if ( ! function_exists( 'getbowtied_th_product_blocks_scripts' ) ) {
-	function getbowtied_th_product_blocks_scripts() {
+add_action( 'admin_init', 'getbowtied_th_blocks_scripts' );
+if ( ! function_exists( 'getbowtied_th_blocks_scripts' ) ) {
+	function getbowtied_th_blocks_scripts() {
 
 		wp_enqueue_script(
-			'getbowtied-th-product-blocks-editor-scripts',
+			'getbowtied-th-blocks-editor-scripts',
 			plugins_url( 'assets/js/main.js', __FILE__ ),
 			array( 'wp-blocks', 'jquery' )
 		);
@@ -25,6 +25,6 @@ if ( ! function_exists( 'getbowtied_th_product_blocks_scripts' ) ) {
 	}
 }
 
-require_once 'posts_grid/block.php';
-require_once 'social_media_profiles/block.php';
-require_once 'slider/block.php';
+include_once 'posts_grid/block.php';
+include_once 'social_media_profiles/block.php';
+include_once 'slider/block.php';

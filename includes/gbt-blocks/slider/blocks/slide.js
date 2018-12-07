@@ -89,7 +89,7 @@
 
 		edit: function( props ) {
 
-			var attributes = props.attributes;
+			let attributes = props.attributes;
 
 			return [
 				el(

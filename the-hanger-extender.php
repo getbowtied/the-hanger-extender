@@ -91,12 +91,12 @@ include_once( 'includes/functions/actions.php' );
 /******************************************************************************/
 
 add_action( 'init', 'gbt_th_gutenberg_blocks' );
-function gbt_th_gutenberg_blocks() {
+if(!function_exists('gbt_th_gutenberg_blocks')) {
+	function gbt_th_gutenberg_blocks() {
 
-	if( is_plugin_active( 'gutenberg/gutenberg.php' ) || is_wp_version('>=', '5.0-beta') ) {
-
-		include_once 'includes/gbt-blocks/index.php';
-
+		if( is_plugin_active( 'gutenberg/gutenberg.php' ) || is_wp_version('>=', '5.0') ) {
+			include_once 'includes/gbt-blocks/index.php';
+		}
 	}
 }
 
