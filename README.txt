@@ -1,8 +1,8 @@
 === The Hanger Extender ===
 Contributors: getbowtied, vanesareinerth, adrianlbs, traians
 Tags: gutenberg, blocks
-Requires at least: 4.9
-Tested up to: 4.9.8
+Requires at least: 5.0
+Tested up to: 5.0
 Stable tag: 1.3
 Requires PHP: 5.5.0
 License: GPLv2 or later
