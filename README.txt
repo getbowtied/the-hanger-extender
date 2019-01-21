@@ -13,7 +13,7 @@ Extends the functionality of The Hanger theme by adding theme specific features.
 
 == Description ==
 
-Companion plugin for **The Hanger** theme. Extends the functionality by adding theme specific features.
+Companion plugin for the **The Hanger** theme. Extends the functionality by adding theme specific features.
 
 **Gutenberg Blocks:**
 - Slider

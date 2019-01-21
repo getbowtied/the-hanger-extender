@@ -7,7 +7,7 @@
 	 * Author: GetBowtied
 	 * Author URI: https://getbowtied.com
 	 * Requires at least: 5.0
-	 * Tested up to: 5.0
+	 * Tested up to: 5.0.3
 	 *
 	 * @package  The Hanger Extender
 	 * @author GetBowtied
@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! function_exists( 'is_plugin_active' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 }
+
+global $theme;
 
 $theme = wp_get_theme();
 if ( $theme->template != 'the-hanger') {
@@ -36,34 +38,12 @@ include_once( 'includes/shortcodes/wc/woocommerce_products_user_bought.php' );
 /* Plugin Updater *************************************************************/
 /******************************************************************************/
 
-add_action( 'init', 'github_th_plugin_updater' );
-if(!function_exists('github_th_plugin_updater')) {
-	function github_th_plugin_updater() {
-
-		include_once 'updater.php';
-
-		define( 'WP_GITHUB_FORCE_UPDATE', true );
-
-		if ( is_admin() ) {
-
-			$config = array(
-				'slug' 				 => plugin_basename(__FILE__),
-				'proper_folder_name' => 'the-hanger-extender',
-				'api_url' 			 => 'https://api.github.com/repos/getbowtied/the-hanger-extender',
-				'raw_url' 			 => 'https://raw.github.com/getbowtied/the-hanger-extender/master',
-				'github_url' 		 => 'https://github.com/getbowtied/the-hanger-extender',
-				'zip_url' 			 => 'https://github.com/getbowtied/the-hanger-extender/zipball/master',
-				'sslverify'			 => true,
-				'requires'			 => '5.0',
-				'tested'			 => '5.0',
-				'readme'			 => 'README.txt',
-				'access_token'		 => '',
-			);
-
-			new WP_GitHub_Updater( $config );
-		}
-	}
-}
+require 'core/updater/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/develop/core/updater/assets/plugin.json',
+	__FILE__,
+	'the-hanger-extender'
+);
 
 /******************************************************************************/
 /* Add Shortcodes to VC *******************************************************/
