@@ -29,7 +29,7 @@ global $theme;
 
 require 'core/updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/develop/core/updater/assets/plugin.json',
+	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/master/core/updater/assets/plugin.json',
 	__FILE__,
 	'the-hanger-extender'
 );
