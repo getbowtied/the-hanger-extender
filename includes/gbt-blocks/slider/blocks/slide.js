@@ -105,7 +105,7 @@
 							TextControl,
 							{
 								key: "gbt_18_th_editor_slide_link",
-	              				label: i18n.__( 'Slide Link', 'the-hanger-extender' ),
+	              				label: i18n.__( 'Link', 'the-hanger-extender' ),
 	              				type: 'text',
 	              				value: attributes.slideURL,
 	              				onChange: function( newText ) {
