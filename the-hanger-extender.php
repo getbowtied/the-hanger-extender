@@ -23,17 +23,6 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 
 global $theme;
 
-$theme = wp_get_theme();
-if ( $theme->template != 'the-hanger') {
-	return;
-}
-
-include_once( 'includes/shortcodes/wp/socials.php' );
-include_once( 'includes/shortcodes/wp/slider.php' );
-include_once( 'includes/shortcodes/wp/blog-posts.php' );
-include_once( 'includes/shortcodes/wp/custom-button.php' );
-include_once( 'includes/shortcodes/wc/woocommerce_products_user_bought.php' );
-
 /******************************************************************************/
 /* Plugin Updater *************************************************************/
 /******************************************************************************/
@@ -45,25 +34,34 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'the-hanger-extender'
 );
 
-/******************************************************************************/
-/* Add Shortcodes to VC *******************************************************/
-/******************************************************************************/
+$theme = wp_get_theme();
+if ( $theme->template == 'the-hanger') {
+	include_once( 'includes/shortcodes/wp/socials.php' );
+	include_once( 'includes/shortcodes/wp/slider.php' );
+	include_once( 'includes/shortcodes/wp/blog-posts.php' );
+	include_once( 'includes/shortcodes/wp/custom-button.php' );
+	include_once( 'includes/shortcodes/wc/woocommerce_products_user_bought.php' );
 
-if ( defined(  'WPB_VC_VERSION' ) ) {
-	
-	add_action( 'init', 'getbowtied_visual_composer_shortcodes' );
-	function getbowtied_visual_composer_shortcodes() {
+	/******************************************************************************/
+	/* Add Shortcodes to VC *******************************************************/
+	/******************************************************************************/
+
+	if ( defined(  'WPB_VC_VERSION' ) ) {
 		
-		// Add new WP shortcodes to VC
+		add_action( 'init', 'getbowtied_visual_composer_shortcodes' );
+		function getbowtied_visual_composer_shortcodes() {
+			
+			// Add new WP shortcodes to VC
+			
+			include_once( 'includes/shortcodes/vc/wp/slider.php' );
+			include_once( 'includes/shortcodes/vc/wp/blog-posts.php' );
+			include_once( 'includes/shortcodes/vc/wp/custom-button.php' );
 		
-		include_once( 'includes/shortcodes/vc/wp/slider.php' );
-		include_once( 'includes/shortcodes/vc/wp/blog-posts.php' );
-		include_once( 'includes/shortcodes/vc/wp/custom-button.php' );
-	
+		}
 	}
-}
 
-include_once( 'includes/functions/actions.php' );
+	include_once( 'includes/functions/actions.php' );
+}
 
 /******************************************************************************/
 /* Add Gutenberg Blocks *******************************************************/
