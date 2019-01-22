@@ -1,5 +1,7 @@
 <?php
 
+global $theme;
+
 //==============================================================================
 //	Main Editor Styles
 //==============================================================================
@@ -25,6 +27,10 @@ if ( ! function_exists( 'getbowtied_th_blocks_scripts' ) ) {
 	}
 }
 
+// The Hanger Dependent Blocks
+if ( $theme->template == 'the-hanger') {
+	include_once 'social_media_profiles/block.php';
+}
+
 include_once 'posts_grid/block.php';
-include_once 'social_media_profiles/block.php';
 include_once 'slider/block.php';
