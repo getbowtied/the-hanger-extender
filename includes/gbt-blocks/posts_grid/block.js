@@ -19,7 +19,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-posts-grid', {
-		title: i18n.__( 'Posts Grid' ),
+		title: i18n.__( 'Posts Grid', 'the-hanger-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M4 5v13h17V5H4zm10 2v3.5h-3V7h3zM6 7h3v3.5H6V7zm0 9v-3.5h3V16H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-3-5.5V7h3v3.5h-3z' } ) 
 			),
@@ -388,7 +388,7 @@
 						{
 							className: 'main-inspector-wrapper',
 						},
-						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:') ),
+						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:', 'the-hanger-extender' ) ),
 						el(
 							'div',
 							{
@@ -403,12 +403,12 @@
 								key: 'th-posts-grid-order-by',
 								options:
 									[
-										{ value: 'title_asc',   label: 'Alphabetical Ascending' },
-										{ value: 'title_desc',  label: 'Alphabetical Descending' },
-										{ value: 'date_asc',   	label: 'Date Ascending' },
-										{ value: 'date_desc',  	label: 'Date Descending' },
+										{ value: 'title_asc',   label: i18n.__('Alphabetical Ascending', 'the-hanger-extender' ) },
+										{ value: 'title_desc',  label: i18n.__('Alphabetical Descending', 'the-hanger-extender' ) },
+										{ value: 'date_asc',   	label: i18n.__('Date Ascending', 'the-hanger-extender' ) },
+										{ value: 'date_desc',  	label: i18n.__('Date Descending', 'the-hanger-extender' ) },
 									],
-	              				label: i18n.__( 'Order By' ),
+	              				label: i18n.__( 'Order By', 'the-hanger-extender' ),
 	              				value: attributes.orderby,
 	              				onChange: function( value ) {
 	              					props.setAttributes( { orderby: value } );
@@ -427,7 +427,7 @@
 								initialPosition: 12,
 								min: 1,
 								max: 20,
-								label: i18n.__( 'Number of Posts' ),
+								label: i18n.__( 'Number of Posts', 'the-hanger-extender' ),
 								onChange: function onChange(newNumber){
 									props.setAttributes( { number: newNumber } );
 									let newCategoriesSelected = attributes.categoriesIDs;
@@ -458,7 +458,7 @@
 								initialPosition: 3,
 								min: 2,
 								max: 4,
-								label: i18n.__( 'Columns' ),
+								label: i18n.__( 'Columns', 'the-hanger-extender' ),
 								onChange: function( newColumns ) {
 									props.setAttributes( { columns: newColumns } );
 								},

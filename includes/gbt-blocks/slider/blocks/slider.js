@@ -23,7 +23,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-slider', {
-		title: i18n.__( 'Slider' ),
+		title: i18n.__( 'Slider', 'the-hanger-extender' ),
 		icon:
 			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M 6.984375 2.9863281 A 1.0001 1.0001 0 0 0 6.8398438 3 L 3 3 A 1.0001 1.0001 0 0 0 2 4 L 2 20 A 1.0001 1.0001 0 0 0 3 21 L 6.8320312 21 A 1.0001 1.0001 0 0 0 7.1582031 21 L 16.832031 21 A 1.0001 1.0001 0 0 0 17.158203 21 L 21 21 A 1.0001 1.0001 0 0 0 22 20 L 22 4 A 1.0001 1.0001 0 0 0 21 3 L 17.154297 3 A 1.0001 1.0001 0 0 0 16.984375 2.9863281 A 1.0001 1.0001 0 0 0 16.839844 3 L 7.1542969 3 A 1.0001 1.0001 0 0 0 6.984375 2.9863281 z M 4 5 L 6 5 L 6 19 L 4 19 L 4 5 z M 8 5 L 16 5 L 16 19 L 8 19 L 8 5 z M 18 5 L 20 5 L 20 19 L 18 19 L 18 5 z' } ),
@@ -124,7 +124,7 @@
 				if( attributes.pagination ) {
 					colors.push(
 						{ 
-							label: i18n.__( 'Pagination Bullets' ),
+							label: i18n.__( 'Pagination Bullets', 'the-hanger-extender' ),
 							value: attributes.paginationColor,
 							onChange: function( newColor) {
 								props.setAttributes( { paginationColor: newColor } );
@@ -151,7 +151,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_th_slider_full_height",
-								label: i18n.__( 'Full Height' ),
+								label: i18n.__( 'Full Height', 'the-hanger-extender' ),
 								checked: attributes.fullHeight,
 								onChange: function() {
 									props.setAttributes( { fullHeight: ! attributes.fullHeight } );
@@ -168,7 +168,7 @@
 								initialPosition: 800,
 								min: 100,
 								max: 1000,
-								label: i18n.__( 'Custom Desktop Height' ),
+								label: i18n.__( 'Custom Desktop Height', 'the-hanger-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { customHeight: newNumber } );
 								},
@@ -183,7 +183,7 @@
 								initialPosition: 3,
 								min: 1,
 								max: 6,
-								label: i18n.__( 'Number of Slides' ),
+								label: i18n.__( 'Number of Slides', 'the-hanger-extender' ),
 								onChange: function( newNumber ) {
 									props.setAttributes( { slides: newNumber } );
 									props.setAttributes( { activeTab: '1' } );
@@ -194,7 +194,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_th_slider_pagination",
-	              				label: i18n.__( 'Pagination Bullets' ),
+	              				label: i18n.__( 'Pagination Bullets', 'the-hanger-extender' ),
 	              				checked: attributes.pagination,
 	              				onChange: function() {
 									props.setAttributes( { pagination: ! attributes.pagination } );
@@ -205,7 +205,7 @@
 							ColorSettings,
 							{
 								key: 'gbt_18_th_slider_arrows_color',
-								title: i18n.__( 'Colors' ),
+								title: i18n.__( 'Colors', 'the-hanger-extender' ),
 								initialOpen: false,
 								colorSettings: getColors()
 							},
