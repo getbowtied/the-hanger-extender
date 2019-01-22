@@ -19,7 +19,7 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-posts-grid', {
-		title: i18n.__( 'Posts Grid' ),
+		title: i18n.__( 'Posts Grid', 'the-hanger-extender' ),
 		icon: el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
 				el( Path, { d:'M4 5v13h17V5H4zm10 2v3.5h-3V7h3zM6 7h3v3.5H6V7zm0 9v-3.5h3V16H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-3-5.5V7h3v3.5h-3z' } ) 
 			),
@@ -161,6 +161,8 @@
 						break;
 				}
 
+				query += '&lang=' + posts_grid_vars.language;
+
 				return query;
 			}
 
@@ -219,10 +221,10 @@
 
 			function renderResults() {
 				if ( attributes.firstLoad === true ) {
-					apiFetch({ path: '/wp/v2/posts?per_page=12&orderby=date&order=desc' }).then(function (posts) {
+					apiFetch({ path: '/wp/v2/posts?per_page=12&orderby=date&order=desc&lang=' + posts_grid_vars.language }).then(function (posts) {
 						props.setAttributes({ result: posts });
 						props.setAttributes({ firstLoad: false });
-						let query = '/wp/v2/posts?per_page=12&orderby=date&order=desc';
+						let query = '/wp/v2/posts?per_page=12&orderby=date&order=desc&lang=' + posts_grid_vars.language;
 						props.setAttributes({queryPosts: query});
 						props.setAttributes({ queryPostsLast: query});
 					});
@@ -297,7 +299,7 @@
 				let optionsIDs = [];
 				let sorted = [];
 			
-				apiFetch({ path: '/wp/v2/categories?per_page=-1' }).then(function (categories) {
+				apiFetch({ path: '/wp/v2/categories?per_page=-1&lang=' + posts_grid_vars.language }).then(function (categories) {
 
 				 	for( let i = 0; i < categories.length; i++) {
 	        			options[i] = {'label': categories[i].name.replace(/&amp;/g, '&'), 'value': categories[i].id, 'parent': categories[i].parent, 'count': categories[i].count };
@@ -386,7 +388,7 @@
 						{
 							className: 'main-inspector-wrapper',
 						},
-						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:') ),
+						el( 'label', { className: 'components-base-control__label' }, i18n.__('Categories:', 'the-hanger-extender' ) ),
 						el(
 							'div',
 							{
@@ -401,12 +403,12 @@
 								key: 'th-posts-grid-order-by',
 								options:
 									[
-										{ value: 'title_asc',   label: 'Alphabetical Ascending' },
-										{ value: 'title_desc',  label: 'Alphabetical Descending' },
-										{ value: 'date_asc',   	label: 'Date Ascending' },
-										{ value: 'date_desc',  	label: 'Date Descending' },
+										{ value: 'title_asc',   label: i18n.__('Alphabetical Ascending', 'the-hanger-extender' ) },
+										{ value: 'title_desc',  label: i18n.__('Alphabetical Descending', 'the-hanger-extender' ) },
+										{ value: 'date_asc',   	label: i18n.__('Date Ascending', 'the-hanger-extender' ) },
+										{ value: 'date_desc',  	label: i18n.__('Date Descending', 'the-hanger-extender' ) },
 									],
-	              				label: i18n.__( 'Order By' ),
+	              				label: i18n.__( 'Order By', 'the-hanger-extender' ),
 	              				value: attributes.orderby,
 	              				onChange: function( value ) {
 	              					props.setAttributes( { orderby: value } );
@@ -425,7 +427,7 @@
 								initialPosition: 12,
 								min: 1,
 								max: 20,
-								label: i18n.__( 'Number of Posts' ),
+								label: i18n.__( 'Number of Posts', 'the-hanger-extender' ),
 								onChange: function onChange(newNumber){
 									props.setAttributes( { number: newNumber } );
 									let newCategoriesSelected = attributes.categoriesIDs;
@@ -454,9 +456,9 @@
 								value: attributes.columns,
 								allowReset: false,
 								initialPosition: 3,
-								min: 1,
+								min: 2,
 								max: 4,
-								label: i18n.__( 'Columns' ),
+								label: i18n.__( 'Columns', 'the-hanger-extender' ),
 								onChange: function( newColumns ) {
 									props.setAttributes( { columns: newColumns } );
 								},

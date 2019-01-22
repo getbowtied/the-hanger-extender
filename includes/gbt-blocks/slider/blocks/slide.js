@@ -27,11 +27,10 @@
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-slide', {
-		title: i18n.__( 'Slide' ),
+		title: i18n.__( 'Slide', 'the-hanger-extender' ),
 		icon:
-			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 100 100' },
-				el( Path, { d:'M85,15H15v60h70V15z M20,70v-9l15-15l9,9L29,70H20z M36,70l19-19l21,19H36z M80,66.8L54.9,44l-7.4,7.4L35,39 L20,54V20h60V66.8z' } ),
-				el( Path, { d:'M65,40c4.1,0,7.5-3.4,7.5-7.5S69.1,25,65,25s-7.5,3.4-7.5,7.5S60.9,40,65,40z M65,30c1.4,0,2.5,1.1,2.5,2.5 S66.4,35,65,35s-2.5-1.1-2.5-2.5S63.6,30,65,30z' } ) 
+			el( SVG, { xmlns:'http://www.w3.org/2000/svg', viewBox:'0 0 24 24' },
+				el( Path, { d:'M21 3H3C2 3 1 4 1 5v14c0 1.1.9 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 15.92c-.02.03-.06.06-.08.08H3V5.08L3.08 5h17.83c.03.02.06.06.08.08v13.84zm-10-3.41L8.5 12.5 5 17h14l-4.5-6z' } ),
 			),
 		category: 'thehanger',
 		parent: [ 'getbowtied/th-slider' ],
@@ -106,7 +105,7 @@
 							TextControl,
 							{
 								key: "gbt_18_th_editor_slide_link",
-	              				label: i18n.__( 'Slide Link' ),
+	              				label: i18n.__( 'Link', 'the-hanger-extender' ),
 	              				type: 'text',
 	              				value: attributes.slideURL,
 	              				onChange: function( newText ) {
@@ -119,7 +118,7 @@
 							ToggleControl,
 							{
 								key: "gbt_18_th_editor_slide_button",
-	              				label: i18n.__( 'Slide Button' ),
+	              				label: i18n.__( 'Slide Button', 'the-hanger-extender' ),
 	              				checked: attributes.slideButton,
 	              				onChange: function() {
 									props.setAttributes( { slideButton: ! attributes.slideButton } );
@@ -131,17 +130,17 @@
 							{
 								key: 'gbt_18_th_editor_slide_colors',
 								initialOpen: false,
-								title: i18n.__( 'Colors' ),
+								title: i18n.__( 'Colors', 'the-hanger-extender' ),
 								colorSettings: [
 									{ 
-										label: i18n.__( 'Text Color' ),
+										label: i18n.__( 'Text Color', 'the-hanger-extender' ),
 										value: attributes.textColor,
 										onChange: function( newColor) {
 											props.setAttributes( { textColor: newColor } );
 										},
 									},
 									{ 
-										label: i18n.__( 'Slide Background' ),
+										label: i18n.__( 'Slide Background', 'the-hanger-extender' ),
 										value: attributes.backgroundColor,
 										onChange: function( newColor) {
 											props.setAttributes( { backgroundColor: newColor } );
@@ -180,7 +179,7 @@
 		              						className: 'gbt_18_th_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
-		              					i18n.__( 'Add Image' )
+		              					i18n.__( 'Add Image', 'the-hanger-extender' )
 	              					), 
 	              					!! attributes.imgID && el(
 	              						Button, 
@@ -196,7 +195,7 @@
 									            });
 											}
 										},
-										i18n.__( 'Remove Image' )
+										i18n.__( 'Remove Image', 'the-hanger-extender' )
 									), 
 	              				];
 	              			},
@@ -262,9 +261,9 @@
 											format: 'string',
 											className: 'gbt_18_th_editor_slide_title_input',
 											formattingControls: [],
-											tagName: 'h2',
+											tagName: 'h4',
 											value: attributes.title,
-											placeholder: i18n.__( 'Add Title' ),
+											placeholder: i18n.__( 'Add Title', 'the-hanger-extender' ),
 											onChange: function( newTitle) {
 												props.setAttributes( { title: newTitle } );
 											}
@@ -290,7 +289,7 @@
 											tagName: 'p',
 											value: attributes.description,
 											formattingControls: [],
-											placeholder: i18n.__( 'Add Subtitle' ),
+											placeholder: i18n.__( 'Add Subtitle', 'the-hanger-extender' ),
 											onChange: function( newSubtitle) {
 												props.setAttributes( { description: newSubtitle } );
 											}
@@ -317,7 +316,7 @@
 											},
 											value: attributes.buttonText,
 											formattingControls: [],
-											placeholder: i18n.__( 'Button Text' ),
+											placeholder: i18n.__( 'Button Text', 'the-hanger-extender' ),
 											onChange: function( newText) {
 												props.setAttributes( { buttonText: newText } );
 											}
@@ -369,16 +368,16 @@
 							key: 		'gbt_18_th_slide_content_wrapper',
 							className: 	'gbt_18_th_slide_content_wrapper slider-content-wrapper'
 						},
-						attributes.title != '' && el( 'h2',
+						attributes.title != '' && el( 'h4',
 							{
 								key: 		'gbt_18_th_slide_title',
 								className: 	'gbt_18_th_slide_title slide-title',
 								style:
 								{
 									color: attributes.textColor
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.title },
 							},
-							attributes.title
 						),
 						attributes.description != '' && el( 'p',
 							{
@@ -387,9 +386,9 @@
 								style:
 								{
 									color: attributes.textColor
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.description },
 							},
-							attributes.description
 						),
 						!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
 							{
@@ -400,9 +399,9 @@
 								{
 									color: attributes.textColor,
 									borderColor: attributes.textColor,
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.buttonText },
 							},
-							attributes.buttonText
 						)
 					)
 				)
