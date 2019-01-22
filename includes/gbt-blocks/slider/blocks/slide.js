@@ -375,9 +375,9 @@
 								style:
 								{
 									color: attributes.textColor
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.title },
 							},
-							attributes.title
 						),
 						attributes.description != '' && el( 'p',
 							{
@@ -386,9 +386,9 @@
 								style:
 								{
 									color: attributes.textColor
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.description },
 							},
-							attributes.description
 						),
 						!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
 							{
@@ -399,9 +399,9 @@
 								{
 									color: attributes.textColor,
 									borderColor: attributes.textColor,
-								}
+								},
+								dangerouslySetInnerHTML: { __html: attributes.buttonText },
 							},
-							attributes.buttonText
 						)
 					)
 				)
