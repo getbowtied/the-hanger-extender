@@ -16,7 +16,6 @@ jQuery(function($) {
 			loop: $(this).find('.swiper-slide').length > 1 ? true : false,
 
 		    speed: 600,
-		    autoplayDisableOnInteraction: true,
 			effect: 'slide',
 		    
 		    // // If we need pagination

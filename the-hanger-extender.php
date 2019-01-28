@@ -88,7 +88,7 @@ if( !function_exists('gbt_th_theme_warning') ) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+		<div class="error">
 			<p>The Hanger Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
