@@ -3,7 +3,7 @@
 	 * Plugin Name: The Hanger Extender
 	 * Plugin URI: https://thehanger.wp-theme.design/
 	 * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
-	 * Version: 1.5
+	 * Version: 1.5.1
 	 * Author: GetBowtied
 	 * Author URI: https://getbowtied.com
 	 * Requires at least: 5.0
@@ -88,7 +88,7 @@ if( !function_exists('gbt_th_theme_warning') ) {
 
 		?>
 
-		<div class="message error woocommerce-admin-notice woocommerce-st-inactive woocommerce-not-configured">
+		<div class="error">
 			<p>The Hanger Extender plugin couldn't find the Block Editor (Gutenberg) on this site. It requires WordPress 5+ or Gutenberg installed as a plugin.</p>
 		</div>
 
