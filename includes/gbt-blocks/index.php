@@ -5,27 +5,24 @@ global $theme;
 //==============================================================================
 //	Main Editor Styles
 //==============================================================================
-wp_enqueue_style(
-	'getbowtied-th-blocks-editor-styles',
-	plugins_url( 'assets/css/editor.css', __FILE__ ),
-	array( 'wp-edit-blocks' )
-);
+add_action( 'enqueue_block_editor_assets', function() {
+	wp_enqueue_style(
+		'getbowtied-th-blocks-editor-styles',
+		plugins_url( 'assets/css/editor.css', __FILE__ ),
+		array( 'wp-edit-blocks' )
+	);
+});
 
 //==============================================================================
 //	Main JS
 //==============================================================================
-add_action( 'admin_init', 'getbowtied_th_blocks_scripts' );
-if ( ! function_exists( 'getbowtied_th_blocks_scripts' ) ) {
-	function getbowtied_th_blocks_scripts() {
-
-		wp_enqueue_script(
-			'getbowtied-th-blocks-editor-scripts',
-			plugins_url( 'assets/js/main.js', __FILE__ ),
-			array( 'wp-blocks', 'jquery' )
-		);
-
-	}
-}
+add_action( 'enqueue_block_editor_assets', function() {
+	wp_enqueue_script(
+		'getbowtied-th-blocks-editor-scripts',
+		plugins_url( 'assets/js/main.js', __FILE__ ),
+		array( 'wp-blocks', 'jquery' )
+	);
+});
 
 // The Hanger Dependent Blocks
 if ( $theme->template == 'the-hanger') {
