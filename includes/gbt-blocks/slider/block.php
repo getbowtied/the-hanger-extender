@@ -36,6 +36,7 @@ if ( ! function_exists( 'gbt_18_th_slider_editor_assets' ) ) {
 add_action( 'enqueue_block_assets', 'gbt_18_th_slider_assets' );
 if ( ! function_exists( 'gbt_18_th_slider_assets' ) ) {
 	function gbt_18_th_slider_assets() {
+		global $theme;
 		
 		wp_enqueue_style(
 			'gbt_18_th_slider_styles',
