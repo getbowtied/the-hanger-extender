@@ -25,6 +25,7 @@ add_action( 'enqueue_block_editor_assets', function() {
 });
 
 // The Hanger Dependent Blocks
+$theme = wp_get_theme();
 if ( $theme->template == 'the-hanger') {
 	include_once 'social_media_profiles/block.php';
 }
