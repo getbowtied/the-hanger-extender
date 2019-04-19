@@ -31,6 +31,6 @@ function getbowtied_user_bought_products() {
 	} 
 	wp_reset_postdata();
 
-	return '<h6>'.__('Your Products', 'woocommerce') .'</h6>'.
+	return '<h6>'.__('Your Products', 'the-hanger-extender') .'</h6>'.
 	'<ul class="products woocommerce columns-4">' . ob_get_clean() . '</ul>';
 }

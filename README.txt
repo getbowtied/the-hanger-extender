@@ -3,11 +3,11 @@ Contributors: getbowtied, vanesareinerth, adrianlbs, traians
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.5.3~
+~Current Version:1.5.4~
 
 Extends the functionality of The Hanger theme by adding theme specific features.
 
@@ -30,6 +30,9 @@ Companion plugin for the **The Hanger** theme. Extends the functionality by addi
 - Display recently purchased products in My Account / Dashboard
 
 == Changelog ==
+
+= 1.5.4 =
+- Fixed: Localization issues
 
 = 1.5.3 =
 - WordPress 5.1 compatibility improvements
