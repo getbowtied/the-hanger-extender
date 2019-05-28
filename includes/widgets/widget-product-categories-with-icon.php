@@ -4,8 +4,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action( 'plugins_loaded', 'gbt_th_wc_widget' );
+add_action( 'wp_enqueue_scripts', function() {
+	wp_enqueue_style(
+		'getbowtied-th-widget-styles',
+		plugins_url( 'assets/css/widget-product-categories-with-icon.css', __FILE__ ),
+		array()
+	);
 
+	wp_enqueue_script(
+		'getbowtied-th-widget-scripts',
+		plugins_url( 'assets/js/widget-product-categories-with-icon.js', __FILE__ ),
+		array( 'jquery' )
+	);
+});
+
+add_action( 'plugins_loaded', 'gbt_th_wc_widget' );
 function gbt_th_wc_widget() {
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 

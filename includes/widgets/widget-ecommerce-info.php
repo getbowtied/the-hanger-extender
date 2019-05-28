@@ -7,11 +7,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 class eCommerce_Info_Widget extends WP_Widget {
 
 	public function __construct() {
+		$this->enqueue_scripts();
 		parent::__construct(
 			'theme_ecommerce_info', // Base ID
 			__('eCommerce Info', 'the-hanger-extender'), // Name
 			array( 'description' => __( 'A widget that displays eCommerce Infos', 'the-hanger-extender' ), ) // Args
 		);
+	}
+
+	public function enqueue_scripts() {
+		add_action( 'wp_enqueue_scripts', function() {
+			wp_enqueue_style(
+				'getbowtied-th-ecommerce-widget-styles',
+				plugins_url( 'assets/css/widget-ecommerce-info.css', __FILE__ ),
+				array()
+			);
+		});
 	}
 
 	public function widget( $args, $instance ) {
