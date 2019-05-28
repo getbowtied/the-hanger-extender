@@ -115,38 +115,38 @@ function gbt_th_wc_widget() {
 
 			public function __construct() {
 				$this->widget_cssclass    = 'woocommerce widget_product_categories_with_icon';
-				$this->widget_description = __( 'A list of product categories.', 'the-hanger' );
+				$this->widget_description = __( 'A list of product categories.', 'the-hanger-extender' );
 				$this->widget_id          = 'woocommerce_product_categories_with_icon';
-				$this->widget_name        = __( 'WooCommerce product categories with icon', 'the-hanger' );
+				$this->widget_name        = __( 'WooCommerce product categories with icon', 'the-hanger-extender' );
 				$this->settings           = array(
 					'orderby' => array(
 						'type'  => 'select',
 						'std'   => 'name',
-						'label' => __( 'Order by', 'the-hanger' ),
+						'label' => __( 'Order by', 'the-hanger-extender' ),
 						'options' => array(
-							'order' => __( 'Category order', 'the-hanger' ),
-							'name'  => __( 'Name', 'the-hanger' ),
+							'order' => __( 'Category order', 'the-hanger-extender' ),
+							'name'  => __( 'Name', 'the-hanger-extender' ),
 						),
 					),
 					'count' => array(
 						'type'  => 'checkbox',
 						'std'   => 1,
-						'label' => __( 'Show product counts', 'the-hanger' ),
+						'label' => __( 'Show product counts', 'the-hanger-extender' ),
 					),
 					'hide_empty' => array(
 						'type'  => 'checkbox',
 						'std'   => 0,
-						'label' => __( 'Hide empty categories', 'the-hanger' ),
+						'label' => __( 'Hide empty categories', 'the-hanger-extender' ),
 					),
 					'hide_icon' => array(
 						'type'  => 'checkbox',
 						'std'   => 0,
-						'label' => __( 'Hide category icon', 'the-hanger' ),
+						'label' => __( 'Hide category icon', 'the-hanger-extender' ),
 					),
 					'expand_all' => array(
 						'type'  => 'checkbox',
 						'std'   => 0,
-						'label' => __( 'Expand All', 'the-hanger' ),
+						'label' => __( 'Expand All', 'the-hanger-extender' ),
 					),
 				);
 
@@ -195,7 +195,7 @@ function gbt_th_wc_widget() {
 				$list_args['walker']                     = new WC_Product_Cat_List_With_Icon_Walker;
 				$list_args['title_li']                   = '';
 				$list_args['pad_counts']                 = 1;
-				$list_args['show_option_none']           = __( 'No product categories exist.', 'the-hanger' );
+				$list_args['show_option_none']           = __( 'No product categories exist.', 'the-hanger-extender' );
 				$list_args['current_category']           = ( $this->current_cat ) ? $this->current_cat->term_id : '';
 				$list_args['current_category_ancestors'] = $this->cat_ancestors;
 

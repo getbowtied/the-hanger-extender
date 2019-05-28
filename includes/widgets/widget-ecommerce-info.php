@@ -9,8 +9,8 @@ class eCommerce_Info_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'theme_ecommerce_info', // Base ID
-			__('eCommerce Info', 'the-hanger'), // Name
-			array( 'description' => __( 'A widget that displays eCommerce Infos', 'the-hanger' ), ) // Args
+			__('eCommerce Info', 'the-hanger-extender'), // Name
+			array( 'description' => __( 'A widget that displays eCommerce Infos', 'the-hanger-extender' ), ) // Args
 		);
 	}
 
@@ -44,13 +44,13 @@ class eCommerce_Info_Widget extends WP_Widget {
 		if ( isset( $instance[ 'title' ] ) ) {
 			$title = $instance[ 'title' ];
 		} else {
-			$title = __( 'eCommerce Info Title', 'the-hanger' );
+			$title = __( 'eCommerce Info Title', 'the-hanger-extender' );
 		}
 
 		if ( isset( $instance[ 'subtitle' ] ) ) {
 			$subtitle = $instance[ 'subtitle' ];
 		} else {
-			$subtitle = __( 'eCommerce Info Subtitle', 'the-hanger' );
+			$subtitle = __( 'eCommerce Info Subtitle', 'the-hanger-extender' );
 		}
 
 		?>
@@ -61,12 +61,12 @@ class eCommerce_Info_Widget extends WP_Widget {
 		</p>
 		
         <p>
-			<label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php _e( 'Title:', 'the-hanger' ); ?></label> 
+			<label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php _e( 'Title:', 'the-hanger-extender' ); ?></label> 
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr($this->get_field_id( 'subtitle' )); ?>"><?php _e( 'Subtitle:', 'the-hanger' ); ?></label> 
+			<label for="<?php echo esc_attr($this->get_field_id( 'subtitle' )); ?>"><?php _e( 'Subtitle:', 'the-hanger-extender' ); ?></label> 
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'subtitle' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'subtitle' )); ?>" type="text" value="<?php echo esc_attr( $subtitle ); ?>">
 		</p>
 		
