@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class eCommerce_Info_Widget extends WP_Widget {
+class TheHanger_eCommerce_Info_Widget extends WP_Widget {
 
 	public function __construct() {
 		$this->enqueue_scripts();
@@ -95,7 +95,7 @@ class eCommerce_Info_Widget extends WP_Widget {
 
 }
 
-function register_ecommerce_info_widget() {
-	register_widget( 'eCommerce_Info_Widget' );
+function th_register_ecommerce_info_widget() {
+	register_widget( 'TheHanger_eCommerce_Info_Widget' );
 }
-add_action( 'widgets_init', 'register_ecommerce_info_widget' );
+add_action( 'widgets_init', 'th_register_ecommerce_info_widget' );
