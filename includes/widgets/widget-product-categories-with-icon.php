@@ -22,7 +22,7 @@ add_action( 'plugins_loaded', 'gbt_th_wc_widget' );
 function gbt_th_wc_widget() {
 	if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 
-		class TheHanger_WC_Product_Cat_List_With_Icon_Walker extends Walker {
+		class WC_Product_Cat_List_With_Icon_Walker extends Walker {
 
 			public $tree_type = 'product_cat';
 
@@ -121,7 +121,7 @@ function gbt_th_wc_widget() {
 			}
 		}
 
-		class TheHanger_WC_Widget_Custom_Product_Categories extends WC_Widget {
+		class WC_Widget_Custom_Product_Categories extends WC_Widget {
 
 			public $cat_ancestors;
 			public $current_cat;
@@ -205,7 +205,7 @@ function gbt_th_wc_widget() {
 
 				$this->widget_start( $args, $instance );
 
-				$list_args['walker']                     = new TheHanger_WC_Product_Cat_List_With_Icon_Walker;
+				$list_args['walker']                     = new WC_Product_Cat_List_With_Icon_Walker;
 				$list_args['title_li']                   = '';
 				$list_args['pad_counts']                 = 1;
 				$list_args['show_option_none']           = __( 'No product categories exist.', 'the-hanger-extender' );
@@ -247,10 +247,10 @@ function gbt_th_wc_widget() {
 			}
 		}
 
-		function th_register_custom_product_categories_widget() {
-			register_widget( 'TheHanger_WC_Widget_Custom_Product_Categories' );
+		function register_custom_product_categories_widget() {
+			register_widget( 'WC_Widget_Custom_Product_Categories' );
 		}
 
-		add_action( 'widgets_init', 'th_register_custom_product_categories_widget' );
+		add_action( 'widgets_init', 'register_custom_product_categories_widget' );
 	}
 }
