@@ -91,6 +91,13 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 				include_once( 'includes/widgets/widget-ecommerce-info.php' );
 				include_once( 'includes/widgets/widget-product-categories-with-icon.php' );
 			}
+
+			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.2' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.2' ) ) ) {
+
+				// Addons
+				include_once( 'includes/addons/woocommerce-category-header.php' );
+				include_once( 'includes/addons/woocommerce-category-icon.php' );
+			}
 		}
 
 		/**
