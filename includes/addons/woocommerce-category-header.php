@@ -175,7 +175,7 @@ add_action( 'product_cat_edit_form_fields', 'woocommerce_edit_category_header_im
 function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {	
 
 	if ( isset( $_POST['product_cat_header_id'] ) )
-		update_woocommerce_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
+		update_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
 
 	delete_transient( 'wc_term_counts' );
 

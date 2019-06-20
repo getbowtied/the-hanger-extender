@@ -55,7 +55,7 @@ add_action( 'product_cat_edit_form_fields', 'woocommerce_edit_category_icon', 50
 function woocommerce_category_icon_save( $term_id, $tt_id, $taxonomy ) {
 
 	if ( isset( $_POST['icon_picker_input'] ) ) {
-		update_woocommerce_term_meta( $term_id, 'icon_id', $_POST['icon_picker_input'] );
+		update_term_meta( $term_id, 'icon_id', $_POST['icon_picker_input'] );
 	}
 
 	delete_transient( 'wc_term_counts' );
