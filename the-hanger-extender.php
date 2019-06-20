@@ -61,7 +61,7 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
 
 			if ( $theme->template == 'the-hanger') {
-				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/socials.php' );
+				// include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/socials.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/slider.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/blog-posts.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/custom-button.php' );
@@ -94,9 +94,15 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 
 			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.2' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.2' ) ) ) {
 
+				// Customizer
+				include_once( dirname( __FILE__ ) . '/includes/customizer/class/class-control-toggle.php' );
+				
 				// Addons
 				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
 				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-icon.php' );
+
+				// Social Media
+				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
 			}
 		}
 
