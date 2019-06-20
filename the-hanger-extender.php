@@ -27,7 +27,7 @@ global $theme;
 /* Plugin Updater *************************************************************/
 /******************************************************************************/
 
-require 'core/updater/plugin-update-checker.php';
+require( dirname( __FILE__ ) . '/core/updater/plugin-update-checker.php' );
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/master/core/updater/assets/plugin.json',
 	__FILE__,
@@ -58,14 +58,14 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			$parent_theme = $theme->parent();
 
 			// Helpers
-			include_once( 'includes/helpers/helpers.php' );
+			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
 
 			if ( $theme->template == 'the-hanger') {
-				include_once( 'includes/shortcodes/wp/socials.php' );
-				include_once( 'includes/shortcodes/wp/slider.php' );
-				include_once( 'includes/shortcodes/wp/blog-posts.php' );
-				include_once( 'includes/shortcodes/wp/custom-button.php' );
-				include_once( 'includes/shortcodes/wc/woocommerce_products_user_bought.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/socials.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/slider.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/blog-posts.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/custom-button.php' );
+				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wc/woocommerce_products_user_bought.php' );
 
 				// Add Shortcodes to VC
 				if ( defined(  'WPB_VC_VERSION' ) ) {
@@ -73,13 +73,13 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 					add_action( 'init', function() {
 						
 						// Add new WP shortcodes to VC
-						include_once( 'includes/shortcodes/vc/wp/slider.php' );
-						include_once( 'includes/shortcodes/vc/wp/blog-posts.php' );
-						include_once( 'includes/shortcodes/vc/wp/custom-button.php' );
+						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/slider.php' );
+						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/blog-posts.php' );
+						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/custom-button.php' );
 					});
 				}
 
-				include_once( 'includes/functions/actions.php' );
+				include_once( dirname( __FILE__ ) . '/includes/functions/actions.php' );
 			}
 
 			// Gutenberg Blocks
@@ -88,15 +88,15 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.1' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.1' ) ) ) {
 
 				// Widgets
-				include_once( 'includes/widgets/widget-ecommerce-info.php' );
-				include_once( 'includes/widgets/widget-product-categories-with-icon.php' );
+				include_once( dirname( __FILE__ ) . '/includes/widgets/widget-ecommerce-info.php' );
+				include_once( dirname( __FILE__ ) . '/includes/widgets/widget-product-categories-with-icon.php' );
 			}
 
 			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.2' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.2' ) ) ) {
 
 				// Addons
-				include_once( 'includes/addons/woocommerce-category-header.php' );
-				include_once( 'includes/addons/woocommerce-category-icon.php' );
+				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
+				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-icon.php' );
 			}
 		}
 
@@ -108,7 +108,7 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 		public function gbt_th_gutenberg_blocks() {
 
 			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || is_wp_version('>=', '5.0') ) {
-				include_once 'includes/gbt-blocks/index.php';
+				include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 			} else {
 				add_action( 'admin_notices', 'gbt_th_theme_warning' );
 			}
