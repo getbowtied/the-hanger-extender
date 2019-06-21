@@ -78,8 +78,6 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/custom-button.php' );
 					});
 				}
-
-				include_once( dirname( __FILE__ ) . '/includes/functions/actions.php' );
 			}
 
 			// Gutenberg Blocks
@@ -103,6 +101,9 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 
 				// Social Media
 				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
+
+				// Social Sharing
+				include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 			}
 		}
 

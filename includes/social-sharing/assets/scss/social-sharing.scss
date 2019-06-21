@@ -1,125 +1,153 @@
-@media only screen and (max-width: 1023px)  {
-
-    .product_socials_wrapper
+.single-product,
+#getbowtied_woocommerce_quickview
+{
+    .product
     {
-        display: table;
-        width: 100%; 
-        text-align: center;
-        padding: 20px 0; 
-        margin: 30px 0; 
-        border-top-width: 1px;
-        border-top-style: solid; 
-        border-bottom-width: 1px;
-        border-bottom-style: solid; 
-        
-        .share-product-text,
-        .product_socials_wrapper_inner
+        .getbowtied-single-product-share-wrapper
         {
-            display: table-cell;
-            vertical-align: middle;
-            width: 50%; 
-        }  
-        
-        .share-product-text
-        {
-            font-size: 10px;
-            text-transform: uppercase;  
-            font-weight: bold;
-            text-align: left;
-        }
-        
-        .product_socials_wrapper_inner
-        {
-            text-align: right;
-            
-            a
-            {
-                padding-right: 10px; 
+            font-size: 0.75rem; 
+            text-align: center;
+            display: flex;
+            justify-content: space-between; 
+            margin: 0  auto 2rem;
+            order: 9;
+                 
+            @media print, screen and (max-width: 640px) {
+                margin-left: -20px;
+                margin-right: -20px;
+                margin-bottom: 1rem; 
             }
-        }
-    }
-}
 
-@media only screen and (min-width: 1024px)  {
-
-    .product_socials_wrapper 
-    {
-        position: fixed;
-        top: 430px;
-        right: 100%;  
-        z-index: 999; 
-        transition: all .5s;
-        animation: slide-in-from-left; 
-        animation-duration: 3s;
-        animation-delay: 1.5s;
-        animation-fill-mode: forwards; 
-        animation-timing-function: ease-in-out;
-        transform: translateX(0);
-
-        .share-product-text
-        {
-            display: none;
-        }
-        
-        .product_socials_wrapper_inner
-        {
-            a
+            @media print, screen and (min-width: 640px) and (max-width: 1024px) {
+                margin-left: -24px;
+                margin-right: -24px;
+                margin-bottom: 1rem; 
+            }
+            
+            @media print, screen and (min-width: 1024px) {
+                float: right;
+                align-items: center;
+                margin: 0  0 3rem;
+                margin-top: -2px; 
+            }
+            
+            .getbowtied-single-product-share
             {
-                display: block;
-                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); 
-                border-radius: 50%;
-                text-align: center;
-                padding-top: 10px; 
-                margin: 10px 0; 
-                width: 38px;
-                height: 38px;  
+                margin-right: 1rem;
+                display: none;
                 
-                &:first-child
+                @media print, screen and (min-width: 1024px) {
+                    display: inline-block;
+                } 
+            }
+
+            a
+            {       
+                @media print, screen and (max-width: 640px) {
+                    width: calc(100% / 3);
+                    border-top: 1px solid;
+                    border-bottom: 1px solid;
+                    border-right: 1px solid;
+                    padding: 1.125rem 0 1rem 0; 
+
+                    &:last-child
+                    {
+                        border-right: none; 
+                    }   
+                }
+                
+                &:last-child
                 {
-                    margin-top: 0;
+                    svg
+                    {
+                        margin-right: 0;
+                    }
+                }
+                
+                svg
+                {
+                    margin-right: 0.75rem;
+                    transition: all .3s ease;
                 }
             }
         }
     }
 }
 
-@keyframes slide-in-from-left 
+.rtl
 {
-    0% 
+    .single-product .product
     {
-        transform: translateX(-55px);
+        .getbowtied-single-product-share-wrapper
+        {
+            @media print, screen and (min-width: 1024px) {
+                float: left;
+            }
+
+            a
+            {
+                svg
+                {
+                    margin-left: 0.75rem;
+                    margin-right: 0;
+                }
+
+                &:last-child
+                {
+                    svg
+                    {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
     }
 
-    50% 
+    #getbowtied_woocommerce_quickview
     {
-        transform: translateX(95px);
-    }
+        .getbowtied_qv_content .site-content .product
+        {
+            .getbowtied-single-product-share-wrapper
+            {
+                float: left;
 
-    75% 
-    {
-        transform: translateX(95px);
-    }
+                .getbowtied-single-product-share
+                {
+                    margin-left: 1rem;
+                    margin-right: 0;
+                }
 
-    100% 
-    {
-        transform: translateX(95px);
+                a 
+                {
+                    svg
+                    {
+                        margin-left: 0.75rem;
+                        margin-right: 0;
+                    }
+
+                    &:last-child
+                    {
+                        svg
+                        {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-.rtl
+.header-sticky-product,
+.header-sticky-blog
 {
-    @media only screen and (max-width: 1023px) {
-
-        .product_socials_wrapper_inner
+    .header-sticky-blog-facebook,
+    .header-sticky-blog-twitter
+    {
+        svg
         {
-            float: left;
-            text-align: left;
-        }
-
-        .share-product-text
-        {
-            float: right;
-            text-align: right;
+            transition: all .3s ease;
         }
     }
 }
