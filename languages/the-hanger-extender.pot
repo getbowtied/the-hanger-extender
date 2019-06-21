@@ -58,12 +58,66 @@ msgstr ""
 msgid "There is no changelog available."
 msgstr ""
 
-#: includes/functions/actions.php:12
-msgid "Facebook"
+#: includes/addons/woocommerce-category-header.php:11
+#: includes/addons/woocommerce-category-header.php:98
+#: includes/addons/woocommerce-category-header.php:195
+msgid "Header"
 msgstr ""
 
-#: includes/functions/actions.php:19
-msgid "Twitter"
+#: includes/addons/woocommerce-category-header.php:15
+#: includes/addons/woocommerce-category-header.php:103
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:15
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:103
+msgid "Upload/Add image"
+msgstr ""
+
+#: includes/addons/woocommerce-category-header.php:16
+#: includes/addons/woocommerce-category-header.php:104
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:16
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:104
+msgid "Remove image"
+msgstr ""
+
+#: includes/addons/woocommerce-category-header.php:40
+#: includes/addons/woocommerce-category-header.php:130
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:40
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:130
+msgid "Choose an image"
+msgstr ""
+
+#: includes/addons/woocommerce-category-header.php:42
+#: includes/addons/woocommerce-category-header.php:132
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:42
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:132
+msgid "Use image"
+msgstr ""
+
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-ico.php:12
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-ico.php:36
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-ico.php:76
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:11
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:98
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:117
+msgid "Icon"
+msgstr ""
+
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-img.php:195
+msgid "Icon Img"
+msgstr ""
+
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:12
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:53
+msgid "Icon Type"
+msgstr ""
+
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:14
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:59
+msgid "Theme Default"
+msgstr ""
+
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:15
+#: includes/addons/woocommerce-category-icon/woocommerce-category-icon-switcher.php:60
+msgid "Custom Icon"
 msgstr ""
 
 #: includes/gbt-blocks/posts_grid/block.js:22
@@ -176,25 +230,21 @@ msgstr ""
 msgid "Number of Slides"
 msgstr ""
 
-#: includes/gbt-blocks/social_media_profiles/block.js:20
+#: includes/gbt-blocks/social_media_profiles/block.js:25
 msgid "Social Media Profiles"
 msgstr ""
 
-#: includes/gbt-blocks/social_media_profiles/block.js:65
+#: includes/gbt-blocks/social_media_profiles/block.js:70
 msgid "Icons Font Size"
 msgstr ""
 
-#: includes/gbt-blocks/social_media_profiles/block.js:75
-#: includes/gbt-blocks/social_media_profiles/block.js:78
+#: includes/gbt-blocks/social_media_profiles/block.js:80
+#: includes/gbt-blocks/social_media_profiles/block.js:83
 msgid "Icons Color"
 msgstr ""
 
-#: includes/gbt-blocks/social_media_profiles/block.js:127
-msgid "Social Media Icons"
-msgstr ""
-
-#: includes/gbt-blocks/social_media_profiles/block.js:135
-msgid "Setup profile links under Appearance > Customize > Social Media"
+#: includes/gbt-blocks/social_media_profiles/block.js:122
+msgid "Setup social profile links under Appearance > Customize > Social Media"
 msgstr ""
 
 #: includes/shortcodes/wc/woocommerce_products_user_bought.php:34
@@ -206,72 +256,84 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:12
+#: includes/social-media/class-social-media.php:337
+msgid "Social Media Icons"
+msgstr ""
+
+#: includes/social-media/class-social-media.php:347
+msgid "Social Media"
+msgstr ""
+
+#: includes/social-sharing/class-social-sharing.php:75
+msgid "Share"
+msgstr ""
+
+#: includes/widgets/widget-ecommerce-info.php:14
 msgid "eCommerce Info"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:13
+#: includes/widgets/widget-ecommerce-info.php:15
 msgid "A widget that displays eCommerce Infos"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:47
+#: includes/widgets/widget-ecommerce-info.php:59
 msgid "eCommerce Info Title"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:53
+#: includes/widgets/widget-ecommerce-info.php:65
 msgid "eCommerce Info Subtitle"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:64
+#: includes/widgets/widget-ecommerce-info.php:76
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/widget-ecommerce-info.php:69
+#: includes/widgets/widget-ecommerce-info.php:81
 msgid "Subtitle:"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:90
+#: includes/widgets/widget-product-categories-with-icon.php:104
 #, php-format
 msgctxt "product category name"
 msgid "%s"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:118
+#: includes/widgets/widget-product-categories-with-icon.php:134
 msgid "A list of product categories."
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:120
+#: includes/widgets/widget-product-categories-with-icon.php:136
 msgid "WooCommerce product categories with icon"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:125
+#: includes/widgets/widget-product-categories-with-icon.php:141
 msgid "Order by"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:127
+#: includes/widgets/widget-product-categories-with-icon.php:143
 msgid "Category order"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:128
+#: includes/widgets/widget-product-categories-with-icon.php:144
 msgid "Name"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:134
+#: includes/widgets/widget-product-categories-with-icon.php:150
 msgid "Show product counts"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:139
+#: includes/widgets/widget-product-categories-with-icon.php:155
 msgid "Hide empty categories"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:144
+#: includes/widgets/widget-product-categories-with-icon.php:160
 msgid "Hide category icon"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:149
+#: includes/widgets/widget-product-categories-with-icon.php:165
 msgid "Expand All"
 msgstr ""
 
-#: includes/widgets/widget-product-categories-with-icon.php:198
+#: includes/widgets/widget-product-categories-with-icon.php:214
 msgid "No product categories exist."
 msgstr ""
