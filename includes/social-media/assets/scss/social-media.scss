@@ -1,169 +1,90 @@
-// Social Media Icons List
-ul.sk_social_icons_list
+.shortcode_socials
 {
-	clear: both;
-	display: block;
-	margin: 15px 0;
 	padding: 0;
-	vertical-align: middle;
+	list-style: none;
 
-	&.left
+	li.th_social_icon
 	{
-		text-align:left;
-	}
-
-	&.center
-	{
-		text-align: center;
-	}
-
-	&.right
-	{
-		text-align:right;
-	}
-
-	li.sk_social_icon
-	{	
 		display: inline-block;
-		list-style: none;
-		line-height: 1;
-		margin: 10px 30px 10px 0;
+		margin: 0;
 
-		&:last-child
+		a
 		{
-			margin-right: 0;
-		}
+			padding: .75em;
 
-		a.sk_social_icon_link
-		{
+			svg
+			{
+				opacity: 1;
+				transition: all .3s ease;
+			}
+
 			&:hover
 			{
-				i
+				svg
 				{
-					opacity: .75;
+					opacity: .6;
 				}
 			}
-
-			i
-			{
-				transition: opacity .2s;
-			}
 		}
-	}
-}
 
-// Top Bar
-.site-top-bar-social-icons-wrapper
-{
-	display: block;
-	float: right;
-	padding: 8px 0;
-
-	ul.sk_social_icons_list
-	{
-		margin: 0;
-		padding-left: 50px;
-
-		li.sk_social_icon
+		&:first-child
 		{
-			margin: 5px 10px 5px 0;
-
-			&:last-child
+			a
 			{
-				margin-right: 0;
-			}
-
-			svg
-			{
-				width: 16px !important;
-				height: 16px !important;
+				padding-left: 0;
 			}
 		}
 	}
 }
 
-// Footer
-.footer_socials_wrapper
+.topbar
 {
-	margin-bottom: 21px;
-
-	@media only screen and (min-width: 40.063em) {
-		margin-bottom: 34px;
-	}
-}
-
-// Off-Canvas
-.off-canvas
-{
-	ul.sk_social_icons_list
+	.topbar-content
 	{
-		li.sk_social_icon
+		.topbar-wrapper-left
 		{
-			margin: 10px 22px 10px 0;
-
-			svg
+			.topbar-socials
 			{
-				width: 18px !important;
-				height: 18px !important;
-			}
-		}
-	}
-}
+				display: flex;
+				flex-shrink: 0;
 
-// RTL
-.rtl
-{
-	ul.sk_social_icons_list
-	{
-		li.sk_social_icon
-		{	
-			margin: 10px 0 10px 30px;
-
-			&:last-child
-			{
-				margin-left: 0;
-			}
-		}
-	}
-
-	.widget_shopkeeper_social_media
-	{
-		ul.sk_social_icons_list
-		{
-			text-align: right;
-		}
-	}
-
-	.site-top-bar-social-icons-wrapper
-	{
-	    float: left;
-
-	    ul.sk_social_icons_list
-	    {
-	    	padding-left: 0;
-	    	padding-right: 50px;
-
-	    	li.sk_social_icon
-			{
-				margin: 5px  5px 10px;
-
-				&:last-child
+				ul
 				{
-					margin-left: 0;
+					margin: 0 .75em 0 0;
+
+					li
+					{
+						float: left;
+
+						a
+						{
+							display: flex;
+
+							&:hover
+							{
+								svg
+								{
+									opacity: 1;
+								}
+							}
+						}
+
+						&:nth-child(6)
+						{
+							clear: left;
+						}
+
+						&:nth-child(11)
+						{
+							clear: left;
+						}
+
+						&:nth-child(16)
+						{
+							clear: left;
+						}
+					}
 				}
-			}
-	    }
-	}
-
-	.off-canvas
-	{
-		ul.sk_social_icons_list
-		{
-			text-align: right;
-
-			li.sk_social_icon
-			{
-				margin: 10px 0 10px 22px;
 			}
 		}
 	}

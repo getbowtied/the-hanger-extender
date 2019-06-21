@@ -39,13 +39,19 @@ if ( ! class_exists( 'THSocialMedia' ) ) :
 				update_option( 'th_social_media_options_import', true );
 			}
 
-			//$this->enqueue_styles();
+			$this->enqueue_styles();
 			$this->customizer_options();
 			$this->create_shortcode();
 
 			add_action( 'topbar_socials', function() {
 				if( get_option( 'th_footer_social_icons', 'no' ) == 'yes' ) {
-					echo '<div class="topbar-socials">' . do_shortcode('[socials]') . '</div>';
+					echo '<div class="topbar-socials">' . do_shortcode('[socials fontsize="12"]') . '</div>';
+				}
+			} );
+
+			add_action( 'header_topbar_socials', function() {
+				if( get_option( 'th_footer_social_icons', 'no' ) == 'yes' ) {
+					echo '<div class="header-mobiles-socials">' . do_shortcode('[socials fontsize="12"]') . '</div>';
 				}
 			} );
 		}
@@ -389,10 +395,15 @@ if ( ! class_exists( 'THSocialMedia' ) ) :
 
 		    extract( shortcode_atts( array(
 		        'align' => 'left',
-		        'fontsize'    => '13',
-                'fontcolor'   => '#000',
+		        'fontsize'    => '18',
+                'fontcolor'   => '',
 		        ), 
 		    $atts ) );
+
+		    $color_style = '';
+		    if( !empty($fontcolor) ) {
+		    	$color_style = 'fill="'.$fontcolor.'"';
+		    }
 
 		    ob_start();
 
@@ -411,7 +422,8 @@ if ( ! class_exists( 'THSocialMedia' ) ) :
 	                        		class="<?php echo !empty($color) ? 'has-color' : ''; ?>" 
 	                        		xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 									width="<?php echo $fontsize; ?>" height="<?php echo $fontsize; ?>"
-									viewBox="0 0 50 50">    
+									viewBox="0 0 50 50"
+									<?php echo $color_style; ?>>    
 									<path d="<?php echo $social['svg_path']; ?>"></path>
 								</svg>
 	                        </a>
