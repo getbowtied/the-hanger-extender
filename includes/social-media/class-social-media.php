@@ -44,13 +44,13 @@ if ( ! class_exists( 'THSocialMedia' ) ) :
 			$this->create_shortcode();
 
 			add_action( 'topbar_socials', function() {
-				if( get_option( 'th_footer_social_icons', 'no' ) == 'yes' ) {
+				if( get_option( 'th_top_bar_social_icons', 'no' ) == 'yes' ) {
 					echo '<div class="topbar-socials">' . do_shortcode('[socials fontsize="12"]') . '</div>';
 				}
 			} );
 
 			add_action( 'header_topbar_socials', function() {
-				if( get_option( 'th_footer_social_icons', 'no' ) == 'yes' ) {
+				if( get_option( 'th_top_bar_social_icons', 'no' ) == 'yes' ) {
 					echo '<div class="header-mobiles-socials">' . do_shortcode('[socials fontsize="12"]') . '</div>';
 				}
 			} );
@@ -97,7 +97,7 @@ if ( ! class_exists( 'THSocialMedia' ) ) :
 			}
 
 			$topbar_option = get_theme_mod( 'topbar_socials_toggle', true ) ? 'yes' : 'no';
-			update_option( 'th_footer_social_icons', $topbar_option );
+			update_option( 'th_top_bar_social_icons', $topbar_option );
 		}
 
 		/**
