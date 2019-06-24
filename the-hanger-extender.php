@@ -61,7 +61,6 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			include_once( dirname( __FILE__ ) . '/includes/helpers/helpers.php' );
 
 			if ( $theme->template == 'the-hanger') {
-				// include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/socials.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/slider.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/blog-posts.php' );
 				include_once( dirname( __FILE__ ) . '/includes/shortcodes/wp/custom-button.php' );
