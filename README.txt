@@ -2,12 +2,12 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs, traians
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.2.1
-Stable tag: 1.5.6
+Tested up to: 5.2.2
+Stable tag: 1.5.7
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.5.6~
+~Current Version:1.5.7~
 
 Extends the functionality of The Hanger theme by adding theme specific features.
 
@@ -30,10 +30,16 @@ Companion plugin for the **The Hanger** theme. Extends the functionality by addi
 - Product Categories with Icon
 
 **Features:**
-- Adds social sharing options for the product page
+- Adds 'Social Media' section in Customizer for easy management of links to social media profiles
+- Adds social sharing options for the product page and blog post 
 - Display recently purchased products in My Account / Dashboard
+- Adds header image and icon options for WooCommerce product categories
 
 == Changelog ==
+
+= 1.5.7 =
+- Adds: the 'Social Media' section in Customizer allowing for easy management of links to social media profiles. The icons can be turned on/off in the Top Bar or displayed in pages using the Gutenberg Block (functionality transferred from the theme)
+- Adds: Upload header images and icons for WooCommerce product categories (functionality transferred from the theme)
 
 = 1.5.6 =
 - Adds: Theme-specific custom widgets: eCommerce Info and Product Categories with Icon
