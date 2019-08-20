@@ -3,7 +3,7 @@
 	 * Plugin Name: The Hanger Extender
 	 * Plugin URI: https://thehanger.wp-theme.design/
 	 * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
-	 * Version: 1.5.7
+	 * Version: 1.5.8
 	 * Author: GetBowtied
 	 * Author URI: https://getbowtied.com
 	 * Requires at least: 5.0
@@ -68,9 +68,9 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 
 				// Add Shortcodes to VC
 				if ( defined(  'WPB_VC_VERSION' ) ) {
-					
+
 					add_action( 'init', function() {
-						
+
 						// Add new WP shortcodes to VC
 						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/slider.php' );
 						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/blog-posts.php' );
@@ -93,7 +93,7 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 
 				// Customizer
 				include_once( dirname( __FILE__ ) . '/includes/customizer/class/class-control-toggle.php' );
-				
+
 				// Addons
 				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
 				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-icon.php' );
