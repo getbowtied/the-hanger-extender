@@ -30,7 +30,7 @@ function getbowtied_slider($params = array(), $content = null) {
 	}
 
 	$getbowtied_slider = '
-		
+
 		<div class="shortcode_getbowtied_slider swiper-container '.$extra_class.'" style="'.$desktop_height.' width: 100%">
 			<div class="swiper-wrapper">
 			'.do_shortcode($content).'
@@ -43,7 +43,7 @@ function getbowtied_slider($params = array(), $content = null) {
 	$getbowtied_slider .=	'</div>';
 
 	$getbowtied_slider .= '<style>'.$mobile_height.' .swiper-pagination-bullet-active:after{ background-color: '.$slide_numbers_color.' } </style>';
-	
+
 	return $getbowtied_slider;
 }
 
@@ -57,18 +57,34 @@ function getbowtied_image_slide($params = array(), $content = null) {
 		'button_text' 				=> '',
 		'button_url'				=> '',
 		'bg_color'					=> '#CCCCCC',
-		'bg_image'					=> ''
+		'bg_image'					=> '',
+		'title_font_size'			=> '0.8125rem',
+		'description_font_size' 	=> '2.5rem',
+		'text_align'				=> 'left'
 
 	), $params));
 
+	$class = 'left-align';
+	switch ($text_align)
+	{
+		case 'left':
+			$class = 'left-align';
+			break;
+		case 'right':
+			$class = 'right-align';
+			break;
+		case 'center':
+			$class = 'center-align';
+	}
+
 	if (!empty($title))
 	{
-		$title = '<p class="slide-title" style="color:'.$text_color.';">'.$title.'</p>';
+		$title = '<p class="slide-title" style="font-size:'.$title_font_size.';color:'.$text_color.';">'.$title.'</p>';
 	} else {
 		$title = "";
 	}
 
-	if (is_numeric($bg_image)) 
+	if (is_numeric($bg_image))
 	{
 		$bg_image = wp_get_attachment_url($bg_image);
 	} else {
@@ -77,7 +93,7 @@ function getbowtied_image_slide($params = array(), $content = null) {
 
 	if (!empty($description))
 	{
-		$description = '<h2 class="slide-description" style="color:rgb('.getbowtied_hex2rgb($text_color).');">'.$description.'</h2>';
+		$description = '<h2 class="slide-description" style="font-size:'.$description_font_size.';color:rgb('.getbowtied_hex2rgb($text_color).');">'.$description.'</h2>';
 	} else {
 		$description = "";
 	}
@@ -90,8 +106,8 @@ function getbowtied_image_slide($params = array(), $content = null) {
 	}
 
 	$getbowtied_image_slide = '
-		
-		<div class="swiper-slide" 
+
+		<div class="swiper-slide '.$class.'"
 		style=	"background: '.$bg_color.' url('.$bg_image.') center center no-repeat ;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
@@ -106,7 +122,7 @@ function getbowtied_image_slide($params = array(), $content = null) {
 				</div>
 			</div>
 		</div>';
-	
+
 	return $getbowtied_image_slide;
 }
 

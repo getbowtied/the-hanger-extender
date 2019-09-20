@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 **	SLIDER
@@ -15,7 +15,7 @@ vc_map( array(
 	"content_element" => true,
 	"params" => array(
         // add params same as with any other content element
-	
+
  		array(
 			"type"			=> "dropdown",
  			"holder"		=> "div",
@@ -26,7 +26,7 @@ vc_map( array(
 			"param_name"	=> "full_height",
 			"value"			=> array('Full Height' => 'yes', 'Custom Height' => 'no'),
  		),
-		
+
  		array(
  			"type"			=> "textfield",
  			"holder"		=> "div",
@@ -121,6 +121,26 @@ vc_map( array(
 		array(
 			"type"			=> "textfield",
 			"holder"		=> "div",
+			"class" 		=> "half_width hide_in_vc_editor",
+			"admin_label" 	=> false,
+			"heading"		=> "Title Font Size",
+			"param_name"	=> "title_font_size",
+			"value"			=> "0.8125rem",
+		),
+
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
+			"class" 		=> "half_width hide_in_vc_editor",
+			"admin_label" 	=> false,
+			"heading"		=> "Description Font Size",
+			"param_name"	=> "description_font_size",
+			"value"			=> "2.5rem",
+		),
+
+		array(
+			"type"			=> "textfield",
+			"holder"		=> "div",
 			"class" 		=> "hide_in_vc_editor",
 			"admin_label" 	=> true,
 			"heading"		=> "Button Text",
@@ -137,7 +157,7 @@ vc_map( array(
 			"param_name"	=> "button_url",
 			"value"			=> "",
 		),
-		
+
 		array(
 			"type"			=> "colorpicker",
 			"holder"		=> "div",
@@ -147,7 +167,7 @@ vc_map( array(
 			"param_name"	=> "bg_color",
 			"value"			=> "#000000",
 		),
-		
+
 		array(
 			"type"			=> "attach_image",
 			"holder"		=> "div",
@@ -156,6 +176,21 @@ vc_map( array(
 			"heading"		=> "Background Image",
 			"param_name"	=> "bg_image",
 			"value"			=> "",
+		),
+
+		array(
+			"type"			=> "dropdown",
+			"holder"		=> "div",
+			"class" 		=> "hide_in_vc_editor",
+			"admin_label" 	=> false,
+			"heading"		=> "Text Align",
+			"param_name"	=> "text_align",
+			"value"			=> array(
+				"Left"		=> "left",
+				"Center"	=> "center",
+				"Right"		=> "right",
+			),
+			"std"			=> "",
 		),
     )
 ) );
