@@ -25,6 +25,66 @@
 	const Circle 				= wp.components.Circle;
 	const Polygon 				= wp.components.Polygon;
 
+	var attributes = {
+		imgURL: {
+			type: 'string',
+			attribute: 'src',
+			selector: 'img',
+			default: '',
+		},
+		imgID: {
+			type: 'number',
+		},
+		imgAlt: {
+			type: 'string',
+			attribute: 'alt',
+			selector: 'img',
+		},
+		title: {
+			type: 'string',
+			default: 'Slide Title',
+		},
+		description: {
+			type: 'string',
+			default: 'Slide Description'
+		},
+		textColor: {
+			type: 'string',
+			default: '#fff'
+		},
+		buttonText: {
+			type: 'string',
+			default: 'Button Text'
+		},
+		slideURL: {
+			type: 'string',
+			default: '#'
+		},
+		slideButton: {
+			type: 'boolean',
+			default: true
+		},
+		backgroundColor: {
+			type: 'string',
+			default: '#24282e'
+		},
+		alignment: {
+			type: 'string',
+			default: 'center'
+		},
+		tabNumber: {
+			type: "number"
+		},
+		titleSize: {
+			type: "string",
+			default: '0.8125rem'
+		},
+		descriptionSize: {
+			type: "string",
+			default: '2.5rem'
+		},
+	};
+
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-slide', {
 		title: i18n.__( 'Slide', 'the-hanger-extender' ),
@@ -34,57 +94,7 @@
 			),
 		category: 'thehanger',
 		parent: [ 'getbowtied/th-slider' ],
-		attributes: {
-		    imgURL: {
-	            type: 'string',
-	            attribute: 'src',
-	            selector: 'img',
-	            default: '',
-	        },
-	        imgID: {
-	            type: 'number',
-	        },
-	        imgAlt: {
-	            type: 'string',
-	            attribute: 'alt',
-	            selector: 'img',
-	        },
-	        title: {
-	        	type: 'string',
-	        	default: 'Slide Title',
-	        },
-	        description: {
-	        	type: 'string',
-	        	default: 'Slide Description'
-	        },
-	        textColor: {
-	        	type: 'string',
-	        	default: '#fff'
-	        },
-	        buttonText: {
-	        	type: 'string',
-	        	default: 'Button Text'
-	        },
-	        slideURL: {
-	        	type: 'string',
-	        	default: '#'
-	        },
-	        slideButton: {
-	        	type: 'boolean',
-	        	default: true
-	        },
-	        backgroundColor: {
-	        	type: 'string',
-	        	default: '#24282e'
-	        },
-	        alignment: {
-	        	type: 'string',
-	        	default: 'center'
-	        },
-	        tabNumber: {
-                type: "number"
-            }
-		},
+		attributes: attributes,
 
 		edit: function( props ) {
 
@@ -93,7 +103,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_th_slide_inspector'
 					},
 					el(
@@ -126,20 +136,52 @@
 							}
 						),
 						el(
+							PanelBody,
+							{
+								key: 'gbt_18_th_editor_slide_text_settings',
+								title: 'Title & Description',
+								initialOpen: false,
+							},
+							el(
+								TextControl,
+								{
+									key: "gbt_18_th_editor_slide_title_size",
+									value: attributes.titleSize,
+									type: 'text',
+									label: i18n.__( 'Title Font Size', 'the-hanger-extender' ),
+									onChange: function( newNumber ) {
+										props.setAttributes( { titleSize: newNumber } );
+									},
+								}
+							),
+							el(
+								TextControl,
+								{
+									key: "gbt_18_th_editor_slide_description_size",
+									value: attributes.descriptionSize,
+									type: 'text',
+									label: i18n.__( 'Description Font Size', 'the-hanger-extender' ),
+									onChange: function( newNumber ) {
+										props.setAttributes( { descriptionSize: newNumber } );
+									},
+								}
+							),
+						),
+						el(
 							ColorSettings,
 							{
 								key: 'gbt_18_th_editor_slide_colors',
 								initialOpen: false,
 								title: i18n.__( 'Colors', 'the-hanger-extender' ),
 								colorSettings: [
-									{ 
+									{
 										label: i18n.__( 'Text Color', 'the-hanger-extender' ),
 										value: attributes.textColor,
 										onChange: function( newColor) {
 											props.setAttributes( { textColor: newColor } );
 										},
 									},
-									{ 
+									{
 										label: i18n.__( 'Slide Background', 'the-hanger-extender' ),
 										value: attributes.backgroundColor,
 										onChange: function( newColor) {
@@ -151,8 +193,8 @@
 						),
 					),
 				),
-				el( 'div', 
-					{ 
+				el( 'div',
+					{
 						key: 		'gbt_18_th_editor_slide_wrapper',
 						className : 'gbt_18_th_editor_slide_wrapper'
 					},
@@ -170,19 +212,19 @@
 									imgAlt: img.alt,
 								} );
 							},
-	              			render: function( img ) { 
+	              			render: function( img ) {
 	              				return [
 		              				! attributes.imgID && el(
-		              					Button, 
-		              					{ 
+		              					Button,
+		              					{
 		              						key: 'gbt_18_th_slide_add_image_button',
 		              						className: 'gbt_18_th_slide_add_image_button button add_image',
 		              						onClick: img.open
 		              					},
 		              					i18n.__( 'Add Image', 'the-hanger-extender' )
-	              					), 
+	              					),
 	              					!! attributes.imgID && el(
-	              						Button, 
+	              						Button,
 										{
 											key: 'gbt_18_th_slide_remove_image_button',
 											className: 'gbt_18_th_slide_remove_image_button button remove_image',
@@ -196,25 +238,25 @@
 											}
 										},
 										i18n.__( 'Remove Image', 'the-hanger-extender' )
-									), 
+									),
 	              				];
 	              			},
 						},
 					),
 					el(
 						BlockControls,
-						{ 
+						{
 							key: 'gbt_18_th_editor_slide_alignment'
 						},
 						el(
-							AlignmentToolbar, 
+							AlignmentToolbar,
 							{
 								key: 'gbt_18_th_editor_slide_alignment_control',
 								value: attributes.alignment,
 								onChange: function( newAlignment ) {
 									props.setAttributes( { alignment: newAlignment } );
 								}
-							} 
+							}
 						),
 					),
 					el(
@@ -251,12 +293,13 @@
 										className: 	'gbt_18_th_editor_slide_title',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_th_editor_slide_title_input',
 											style:
-											{ 
+											{
 												color: attributes.textColor,
+												fontSize: attributes.titleSize
 											},
 											format: 'string',
 											className: 'gbt_18_th_editor_slide_title_input',
@@ -277,12 +320,13 @@
 										className: 	'gbt_18_th_editor_slide_description',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_th_editor_slide_description_input',
 											style:
 											{
 												color: attributes.textColor,
+												fontSize: attributes.descriptionSize
 											},
 											className: 'gbt_18_th_editor_slide_description_input',
 											format: 'string',
@@ -303,7 +347,7 @@
 										className: 	'gbt_18_th_editor_slide_button',
 									},
 									el(
-										RichText, 
+										RichText,
 										{
 											key: 'gbt_18_th_editor_slide_button_input',
 											className: 'gbt_18_th_editor_slide_button_input',
@@ -330,17 +374,17 @@
 			];
 		},
 		getEditWrapperProps: function( attributes ) {
-            return { 
-            	'data-tab': attributes.tabNumber 
+            return {
+            	'data-tab': attributes.tabNumber
             };
         },
 		save: function( props ) {
 
 			let attributes = props.attributes;
 
-			return el( 'div', 
+			return el( 'div',
 				{
-					key: 		'gbt_18_th_swiper_slide', 
+					key: 		'gbt_18_th_swiper_slide',
 					className: 	'gbt_18_th_swiper_slide swiper-slide ' + attributes.alignment + '-align',
 					style:
 					{
@@ -374,7 +418,8 @@
 								className: 	'gbt_18_th_slide_title slide-title',
 								style:
 								{
-									color: attributes.textColor
+									color: attributes.textColor,
+									fontSize: attributes.titleSize
 								},
 								dangerouslySetInnerHTML: { __html: attributes.title },
 							},
@@ -385,7 +430,8 @@
 								className: 	'gbt_18_th_slide_description slide-description',
 								style:
 								{
-									color: attributes.textColor
+									color: attributes.textColor,
+									fontSize: attributes.descriptionSize
 								},
 								dangerouslySetInnerHTML: { __html: attributes.description },
 							},
@@ -407,6 +453,85 @@
 				)
 			);
 		},
+
+		deprecated: [
+	        {
+				attributes: attributes,
+
+	            save: function( props ) {
+					let attributes = props.attributes;
+
+					return el( 'div',
+						{
+							key: 		'gbt_18_th_swiper_slide',
+							className: 	'gbt_18_th_swiper_slide swiper-slide ' + attributes.alignment + '-align',
+							style:
+							{
+								backgroundColor: attributes.backgroundColor,
+								backgroundImage: 'url(' + attributes.imgURL + ')',
+								color: attributes.textColor
+							}
+						},
+						! attributes.slideButton && attributes.slideURL != '' && el( 'a',
+							{
+								key: 		'gbt_18_th_slide_fullslidelink',
+								className: 	'fullslidelink',
+								href: 		attributes.slideURL,
+								'target': 	'_blank'
+							}
+						),
+						el( 'div',
+							{
+								key: 					'gbt_18_th_slide_content',
+								className: 				'gbt_18_th_slide_content slider-content',
+								'data-swiper-parallax': '-1000'
+							},
+							el( 'div',
+								{
+									key: 		'gbt_18_th_slide_content_wrapper',
+									className: 	'gbt_18_th_slide_content_wrapper slider-content-wrapper'
+								},
+								attributes.title != '' && el( 'h4',
+									{
+										key: 		'gbt_18_th_slide_title',
+										className: 	'gbt_18_th_slide_title slide-title',
+										style:
+										{
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.title },
+									},
+								),
+								attributes.description != '' && el( 'p',
+									{
+										key: 		'gbt_18_th_slide_description',
+										className: 	'gbt_18_th_slide_description slide-description',
+										style:
+										{
+											color: attributes.textColor
+										},
+										dangerouslySetInnerHTML: { __html: attributes.description },
+									},
+								),
+								!! attributes.slideButton && attributes.buttonText != '' && el( 'a',
+									{
+										key: 		'gbt_18_th_slide_button',
+										className: 	'gbt_18_th_slide_button slide-button',
+										href: attributes.slideURL,
+										style:
+										{
+											color: attributes.textColor,
+											borderColor: attributes.textColor,
+										},
+										dangerouslySetInnerHTML: { __html: attributes.buttonText },
+									},
+								)
+							)
+						)
+					);
+	            },
+	        }
+	    ],
 	} );
 
 } )(
