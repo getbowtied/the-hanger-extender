@@ -3,27 +3,29 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType;
 
-	const InspectorControls 	= wp.editor.InspectorControls;
-	const InnerBlock 			= wp.editor.InnerBlocks;
-	const MediaUpload			= wp.editor.MediaUpload;
-	const RichText				= wp.editor.RichText;
-	const AlignmentToolbar		= wp.editor.AlignmentToolbar;
-    const BlockControls       	= wp.editor.BlockControls;
-    const ColorSettings			= wp.editor.PanelColorSettings;
+	const {
+		TextControl,
+		ToggleControl,
+		SelectControl,
+		RangeControl,
+		PanelBody,
+		Button,
+		SVG,
+		Path,
+		Circle,
+		Polygon,
+	} = wp.components;
 
-	const TextControl 			= wp.components.TextControl;
-	const SelectControl			= wp.components.SelectControl;
-	const PanelBody				= wp.components.PanelBody;
-	const ToggleControl			= wp.components.ToggleControl;
-	const Button 				= wp.components.Button;
-	const RangeControl			= wp.components.RangeControl;
-
-	const SVG 					= wp.components.SVG;
-	const Path 					= wp.components.Path;
-	const Circle 				= wp.components.Circle;
-	const Polygon 				= wp.components.Polygon;
+	const {
+		InspectorControls,
+		MediaUpload,
+		RichText,
+		AlignmentToolbar,
+		BlockControls,
+		PanelColorSettings,
+	} = wp.blockEditor;
 
 	var attributes = {
 		imgURL: {
@@ -168,7 +170,7 @@
 							),
 						),
 						el(
-							ColorSettings,
+							PanelColorSettings,
 							{
 								key: 'gbt_18_th_editor_slide_colors',
 								initialOpen: false,
@@ -303,7 +305,7 @@
 											},
 											format: 'string',
 											className: 'gbt_18_th_editor_slide_title_input',
-											formattingControls: [],
+											allowedFormats: [],
 											tagName: 'h4',
 											value: attributes.title,
 											placeholder: i18n.__( 'Add Title', 'the-hanger-extender' ),
@@ -332,7 +334,7 @@
 											format: 'string',
 											tagName: 'p',
 											value: attributes.description,
-											formattingControls: [],
+											allowedFormats: [],
 											placeholder: i18n.__( 'Add Subtitle', 'the-hanger-extender' ),
 											onChange: function( newSubtitle) {
 												props.setAttributes( { description: newSubtitle } );
@@ -359,7 +361,7 @@
 												borderColor: attributes.textColor,
 											},
 											value: attributes.buttonText,
-											formattingControls: [],
+											allowedFormats: [],
 											placeholder: i18n.__( 'Button Text', 'the-hanger-extender' ),
 											onChange: function( newText) {
 												props.setAttributes( { buttonText: newText } );
