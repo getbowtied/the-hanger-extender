@@ -41,7 +41,7 @@
       .single-product .product .getbowtied-single-product-share-wrapper .getbowtied-single-product-share,
       #getbowtied_woocommerce_quickview .product .getbowtied-single-product-share-wrapper .getbowtied-single-product-share {
         display: inline-block; } }
-  @media print, screen and (max-width: 640px) {
+  @media print, screen and (max-width: 1023px) {
     .single-product .product .getbowtied-single-product-share-wrapper a,
     #getbowtied_woocommerce_quickview .product .getbowtied-single-product-share-wrapper a {
       width: calc(100% / 3);
