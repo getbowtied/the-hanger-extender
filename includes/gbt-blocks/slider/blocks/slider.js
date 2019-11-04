@@ -3,23 +3,27 @@
 	const el = element.createElement;
 
 	/* Blocks */
-	const registerBlockType   	= wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType;
 
-	const InspectorControls 	= wp.editor.InspectorControls;
-	const InnerBlock 			= wp.editor.InnerBlocks;
-	const ColorSettings			= wp.editor.PanelColorSettings;
+	const {
+		TextControl,
+		ToggleControl,
+		SelectControl,
+		RangeControl,
+		PanelBody,
+		Button,
+		TabPanel,
+		SVG,
+		Path,
+		Circle,
+		Polygon,
+	} = wp.components;
 
-	const SelectControl			= wp.components.SelectControl;
-	const ToggleControl			= wp.components.ToggleControl;
-	const TextControl 			= wp.components.TextControl;
-	const Button 				= wp.components.Button;
-	const RangeControl			= wp.components.RangeControl;
-	const PanelBody				= wp.components.PanelBody;
-	const TabPanel 				= wp.components.TabPanel;
-	const SVG 					= wp.components.SVG;
-	const Path 					= wp.components.Path;
-	const Circle 				= wp.components.Circle;
-	const Polygon 				= wp.components.Polygon;
+	const {
+		InspectorControls,
+		InnerBlocks,
+		PanelColorSettings,
+	} = wp.blockEditor;
 
 	/* Register Block */
 	registerBlockType( 'getbowtied/th-slider', {
@@ -83,7 +87,7 @@
 				                key: 'slide' + i,
 				                className: 'slide-tab slide-' + i,
 				                'data-tab': i,
-				                onClick: function() {				                	
+				                onClick: function() {
                     				props.setAttributes({ activeTab: i });
                                 },
 				            },
@@ -103,7 +107,7 @@
 				}
 
 				return tabs;
-			} 
+			}
 
 			function getTemplates() {
 				let n = [];
@@ -123,7 +127,7 @@
 
 				if( attributes.pagination ) {
 					colors.push(
-						{ 
+						{
 							label: i18n.__( 'Pagination Bullets', 'the-hanger-extender' ),
 							value: attributes.paginationColor,
 							onChange: function( newColor) {
@@ -139,7 +143,7 @@
 			return [
 				el(
 					InspectorControls,
-					{ 
+					{
 						key: 'gbt_18_th_slider_inspector'
 					},
 					el(
@@ -202,7 +206,7 @@
 							}
 						),
 						el(
-							ColorSettings,
+							PanelColorSettings,
 							{
 								key: 'gbt_18_th_slider_arrows_color',
 								title: i18n.__( 'Colors', 'the-hanger-extender' ),
@@ -226,7 +230,7 @@
 						getTabs()
 					),
 					el(
-						InnerBlock,
+						InnerBlocks,
 						{
 							key: 'gbt_18_th_editor_slider_inner_blocks ',
 							template: getTemplates(),
@@ -240,13 +244,13 @@
 
 		save: function( props ) {
 			attributes = props.attributes;
-			return el( 
+			return el(
 				'div',
 				{
 					key: 'gbt_18_th_slider_wrapper',
 					className: 'gbt_18_th_slider_wrapper'
 				},
-				el( 
+				el(
 					'div',
 					{
 						key: 'gbt_18_th_slider_container',
@@ -262,7 +266,7 @@
 							key: 'swiper-wrapper',
 							className: 'swiper-wrapper'
 						},
-						el( InnerBlock.Content, { key: 'slide-content' } )
+						el( InnerBlocks.Content, { key: 'slide-content' } )
 					),
 					!! attributes.pagination && el(
 						'div',
