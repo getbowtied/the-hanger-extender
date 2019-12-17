@@ -218,11 +218,13 @@ function gbt_th_wc_widget() {
 					echo '<ul class="product-categories-with-icon">';
 
 					$links_html= '';
+					$new_products_icon = '';
+					$on_sale_icon = '';
 
 					if ( ! $hide_icon )  {
 						$new_products_icon 	= '<i class="thehanger-icons-ui_star"></i>';
 						$on_sale_icon 		= '<i class="thehanger-icons-ecommerce_discount-symbol"></i>';
-					} 
+					}
 
 					if ( getbowtied_new_products_page_url() !== false ):
 						$links_html .= '<li class="cat-item">
