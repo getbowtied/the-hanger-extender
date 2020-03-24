@@ -1,5 +1,5 @@
 <?php
- 
+
 //======================================================
 // Category Header fields.
 //======================================================
@@ -24,7 +24,7 @@ function woocommerce_add_category_header_img() {
 
 			// Uploading files
 			var header_file_frame;
-			
+
 			jQuery(document).on( 'click', '.upload_header_button', function( event ){
 
 				event.preventDefault();
@@ -104,7 +104,7 @@ function woocommerce_edit_category_header_img( $term, $taxonomy ) {
 				<button type="submit" class="remove_header_image_button button"><?php esc_html_e( 'Remove image', 'the-hanger-extender' ); ?></button>
 			</div>
 
-			<script>			 
+			<script>
 
 			if (jQuery('#product_cat_thumbnail_id').val() == 0)
 				 jQuery('.remove_image_button').hide();
@@ -172,7 +172,7 @@ add_action( 'product_cat_edit_form_fields', 'woocommerce_edit_category_header_im
 // woocommerce_category_header_img_save function.
 //======================================================
 
-function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {	
+function woocommerce_category_header_img_save( $term_id, $tt_id, $taxonomy ) {
 
 	if ( isset( $_POST['product_cat_header_id'] ) )
 		update_term_meta( $term_id, 'header_id', absint( $_POST['product_cat_header_id'] ) );
@@ -208,7 +208,7 @@ add_filter( 'manage_edit-product_cat_columns', 'woocommerce_product_cat_header_c
 function woocommerce_product_cat_header_column( $columns, $column, $id ) {
 
 	if ( $column == 'header' ) {
-		
+
 		$thumbnail_id 	= get_term_meta( $id, 'header_id', true );
 
 		if ($thumbnail_id)
@@ -225,7 +225,7 @@ function woocommerce_product_cat_header_column( $columns, $column, $id ) {
 	}
 
 	return $columns;
-	
+
 }
 
 add_filter( 'manage_product_cat_custom_column', 'woocommerce_product_cat_header_column', 10, 3 );
@@ -239,18 +239,18 @@ function woocommerce_get_header_image_url($cat_ID = false) {
 
 	if ($cat_ID==false && is_product_category()){
 		global $wp_query;
-		
+
 		// get the query object
 		$cat = $wp_query->get_queried_object();
-		
+
 		// get the thumbnail id user the term_id
 		$cat_ID = $cat->term_id;
 	}
 
-    $thumbnail_id = get_term_meta($cat_ID, 'header_id', true ); 
+    $thumbnail_id = get_term_meta($cat_ID, 'header_id', true );
 
     // get the image URL
-   return wp_get_attachment_url( $thumbnail_id ); 
+   return wp_get_attachment_url( $thumbnail_id );
 
 }
 
@@ -260,9 +260,9 @@ function woocommerce_get_header_image_url($cat_ID = false) {
 //======================================================
 
 function show_category_header() {
-	$category_header_src = woocommerce_get_header_image_url();	
+	$category_header_src = woocommerce_get_header_image_url();
 	if( $category_header_src != "" ) {
-		echo '<div class="woocommerce_category_header_image"><img src="'.$category_header_src.'" /></div>';
+		echo '<div class="woocommerce_category_header_image"><img src="'.$category_header_src.'" alt="Category Header Image" /></div>';
 	}
 }
 
