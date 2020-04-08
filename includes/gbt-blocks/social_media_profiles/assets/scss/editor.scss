@@ -14,7 +14,7 @@ ul.shortcode_socials
 {
 	clear: both;
 	display: block;
-	margin: 15px 0;
+	margin: 15px 0.5em 0 !important;
 	padding: 0;
 	vertical-align: middle;
 
@@ -34,7 +34,7 @@ ul.shortcode_socials
 	}
 
 	li.th_social_icon
-	{	
+	{
 		display: inline-block;
 		font-size: 24px;
 		list-style: none;
