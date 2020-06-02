@@ -11,7 +11,7 @@
 	 *
 	 * @package  The Hanger Extender
 	 * @author GetBowtied
-	 */
+	 */ 
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
