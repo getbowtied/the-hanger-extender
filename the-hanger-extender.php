@@ -23,6 +23,9 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 
 global $theme;
 
+$version = ( isset(get_plugin_data( __FILE__ )['Version']) && !empty(get_plugin_data( __FILE__ )['Version']) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+define ( 'TH_EXT_VERSION', $version );
+
 /******************************************************************************/
 /* Plugin Updater *************************************************************/
 /******************************************************************************/
@@ -92,7 +95,8 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.2' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.2' ) ) ) {
 
 				// Customizer
-				include_once( dirname( __FILE__ ) . '/includes/customizer/class/class-control-toggle.php' );
+				include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-th-ext-repeater-control.php' );
+				include_once( dirname( __FILE__ ) . '/includes/customizer/toggle/class-control-toggle.php' );
 
 				// Addons
 				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
