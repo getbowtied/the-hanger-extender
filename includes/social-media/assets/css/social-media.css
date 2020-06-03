@@ -1,9 +1,15 @@
 .shortcode_socials {
   padding: 0;
+  margin-left: 0;
   list-style: none; }
+  .shortcode_socials.center {
+    text-align: center; }
+  .shortcode_socials.right {
+    text-align: right; }
   .shortcode_socials li.th_social_icon {
     display: inline-block;
-    margin: 0; }
+    margin: 0;
+    vertical-align: text-top; }
     .shortcode_socials li.th_social_icon a {
       padding: .75em; }
       .shortcode_socials li.th_social_icon a svg {

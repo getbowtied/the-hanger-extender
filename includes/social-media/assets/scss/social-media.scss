@@ -4,10 +4,19 @@
 	margin-left: 0;
 	list-style: none;
 
+	&.center {
+		text-align: center;
+	}
+
+	&.right {
+		text-align: right;
+	}
+
 	li.th_social_icon
 	{
 		display: inline-block;
 		margin: 0;
+	    vertical-align: text-top;
 
 		a
 		{

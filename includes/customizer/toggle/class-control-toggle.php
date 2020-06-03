@@ -54,7 +54,7 @@ if ( ! class_exists( 'WP_TH_Customize_Toggle_Control' ) ) {
 		 * Enqueue control related scripts/styles.
 		 */
 		public function enqueue() {
-			wp_enqueue_style('th-extender-customizer-styles', plugins_url( 'assets/css/customizer.css', dirname( __FILE__ ) ), NULL );
+			wp_enqueue_style('th-ext-customizer-styles', plugins_url( 'assets/css/customizer_toggle.css', __FILE__ ), array(), TH_EXT_VERSION );
 		}
 	}
 }
