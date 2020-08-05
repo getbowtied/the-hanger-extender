@@ -400,7 +400,8 @@
 						key: 		'gbt_18_th_slide_fullslidelink',
 						className: 	'fullslidelink',
 						href: 		attributes.slideURL,
-						'target': 	'_blank'
+						'target': 	'_blank',
+						'rel': 		'noopener noreferrer',
 					}
 				),
 				el( 'div',
