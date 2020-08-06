@@ -2,12 +2,12 @@
 Contributors: getbowtied, vanesareinerth, adrianlbs, traians
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.4.1
-Stable tag: 1.6.6
+Tested up to: 5.5
+Stable tag: 1.6.7
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.6.6~
+~Current Version:1.6.7~
 
 Extends the functionality of The Hanger theme by adding theme specific features.
 
@@ -37,11 +37,13 @@ Companion plugin for the **The Hanger** theme. Extends the functionality by addi
 
 == Changelog ==
 
+= 1.6.7 =
+- WordPress 5.5 compatibility updates
+
 = 1.6.6 =
 - New: Option to show/hide product's social sharing buttons
 - New: Social Media Customizer Control that allows for custom Icons and Social Profile links
 - Fixed: eCommerce Info Widget customizer warnings
-
 
 = 1.6.5 =
 - Small maintenance updates
