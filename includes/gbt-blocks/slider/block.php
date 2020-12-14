@@ -38,9 +38,12 @@ if ( ! function_exists( 'gbt_18_th_slider_editor_assets' ) ) {
 //==============================================================================
 //  Enqueue Frontend Assets
 //==============================================================================
-add_action( 'enqueue_block_assets', 'gbt_18_th_slider_assets' );
+add_action( 'enqueue_block_assets', 'gbt_18_th_slider_assets', 99 );
 if ( ! function_exists( 'gbt_18_th_slider_assets' ) ) {
 	function gbt_18_th_slider_assets() {
+
+		wp_enqueue_style( 'swiper' );
+		wp_enqueue_script( 'swiper' );
 
 		wp_enqueue_style(
 			'gbt_18_th_slider_styles',
@@ -48,23 +51,6 @@ if ( ! function_exists( 'gbt_18_th_slider_assets' ) ) {
 			array(),
 			filemtime(plugin_dir_path(__FILE__) . 'assets/css/frontend/style.css')
 		);
-
-		$theme = wp_get_theme();
-		if ( $theme->template != 'the-hanger') {
-			wp_enqueue_style(
-				'swiper',
-				plugins_url( 'vendor/swiper/css/swiper.min.css', __FILE__ ),
-				array(),
-				'6.4.1'
-			);
-			wp_enqueue_script(
-				'swiper',
-				plugins_url( 'vendor/swiper/js/swiper.min.js', __FILE__ ),
-				array(),
-				'6.4.1',
-				true
-			);
-		}
 
 		wp_enqueue_script(
 			'gbt_18_th_slider_script',

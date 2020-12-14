@@ -4,6 +4,8 @@
 
 function getbowtied_slider($params = array(), $content = null) {
 
+	wp_enqueue_script('swiper');
+	wp_enqueue_style('swiper');
 	wp_enqueue_script('thehanger-slider-script');
 	wp_enqueue_style('thehanger-slider-styles');
 
