@@ -3,6 +3,9 @@
 // [slider]
 
 function getbowtied_slider($params = array(), $content = null) {
+
+	wp_enqueue_script('thehanger-slider-script');
+
 	extract(shortcode_atts(array(
 		'full_height' 		  	   	=> 'no',
 		'custom_desktop_height' 	=> '800px',
@@ -29,9 +32,11 @@ function getbowtied_slider($params = array(), $content = null) {
 		$mobile_height = '';
 	}
 
+	$unique = uniqid();
+
 	$getbowtied_slider = '
 
-		<div class="shortcode_getbowtied_slider swiper-container '.$extra_class.'" style="'.$desktop_height.' width: 100%">
+		<div class="shortcode_getbowtied_slider swiper-container swiper-'.esc_attr($unique).' '.$extra_class.'" style="'.$desktop_height.' width: 100%" data-id="'.esc_attr($unique).'">
 			<div class="swiper-wrapper">
 			'.do_shortcode($content).'
 			</div>';
@@ -127,3 +132,13 @@ function getbowtied_image_slide($params = array(), $content = null) {
 }
 
 add_shortcode('image_slide', 'getbowtied_image_slide');
+
+add_action( 'wp_enqueue_scripts', 'getbowtied_th_shortcodes_scripts', 99 );
+function getbowtied_th_shortcodes_scripts() {
+
+	$theme = wp_get_theme();
+	wp_register_script('thehanger-slider-script',
+		plugins_url( 'assets/js/slider.js', dirname(__FILE__) ),
+		array('jquery')
+	);
+}

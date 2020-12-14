@@ -51,17 +51,18 @@ if ( ! function_exists( 'gbt_18_th_slider_assets' ) ) {
 
 		$theme = wp_get_theme();
 		if ( $theme->template != 'the-hanger') {
-			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 			wp_enqueue_style(
 				'swiper',
-				plugins_url( 'vendor/swiper/css/swiper'.$suffix.'.css', __FILE__ ),
+				plugins_url( 'vendor/swiper/css/swiper.min.css', __FILE__ ),
 				array(),
-				filemtime(plugin_dir_path(__FILE__) . 'vendor/swiper/css/swiper'.$suffix.'.css')
+				'6.4.1'
 			);
 			wp_enqueue_script(
 				'swiper',
-				plugins_url( 'vendor/swiper/js/swiper'.$suffix.'.js', __FILE__ ),
-				array()
+				plugins_url( 'vendor/swiper/js/swiper.min.js', __FILE__ ),
+				array(),
+				'6.4.1',
+				true
 			);
 		}
 
