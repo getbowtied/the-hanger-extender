@@ -16,8 +16,8 @@
 	{
 		@media all and (max-width: 640px)
 		{
-			margin-right: rem-calc(-20);
-	    	margin-left: rem-calc(-20);
+			margin-right: -20px;
+	    	margin-left: -20px;
 	    	width: calc(100% + 2.5rem) !important;
 		}
 	}
@@ -68,7 +68,7 @@
 		{
 			position: relative;
 			text-align: left;
-			padding: 0 rem-calc(84) 0 rem-calc(40);
+			padding: 0 84px 0 40px;
 			box-sizing: border-box;
 			width: 100%;
 			max-width: 1340px;
@@ -82,12 +82,12 @@
 
 			@media all and (min-width: 641px) and (max-width: 1023px)
 			{
-				padding: 0 rem-calc(60);
+				padding: 0 60px;
 			}
 
 			@media all and (min-width: 1024px)
 			{
-				padding: 0 rem-calc(84);
+				padding: 0 84px;
 			}
 
 			.slider-content-wrapper
@@ -103,34 +103,34 @@
 
 		.slide-title
 		{
-			font-size: rem-calc(13);
+			font-size: 13px;
 			text-transform: uppercase;
 			word-wrap: break-word;
-			margin-bottom: rem-calc(25);
+			margin-bottom: 25px;
 		}
 
 		.slide-description
 		{
 			word-wrap: break-word;
 			line-height: 1.5;
-			font-size: rem-calc(25);
-			margin-bottom: rem-calc(35);
+			font-size: 25px;
+			margin-bottom: 35px;
 
 			@media all and (min-width: 1024px)
 			{
-				font-size: rem-calc(40);
+				font-size: 40px;
 			}
 
 			@media all and (max-width: 640px)
 			{
-				font-size: rem-calc(18) !important;
+				font-size: 18px !important;
 			}
 		}
 
 		.slide-button
 		{
 			text-transform: uppercase;
-			font-size: rem-calc(13);
+			font-size: 13px;
 		    padding-bottom: 8px;
 			border-bottom: 3px solid;
 
@@ -168,7 +168,7 @@
 
 		.swiper-pagination-bullet
 		{
-			margin: 0 0 rem-calc(20);
+			margin: 0 0 20px;
 			background: none;
 			transition: all .3s ease;
 			width: auto;
@@ -194,7 +194,7 @@
 				width: 0;
 				display: inline-block;
 				vertical-align: middle;
-				margin-left: rem-calc(20);
+				margin-left: 20px;
 				transition: all ease-in .5s;
 			}
 
@@ -209,8 +209,7 @@
 					width: 20px;
 					display: inline-block;
 					vertical-align: middle;
-					margin-left: rem-calc(20);
-					// background-color: #fff;
+					margin-left: 20px;
 				}
 			}
 
