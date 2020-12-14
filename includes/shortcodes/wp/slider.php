@@ -5,6 +5,7 @@
 function getbowtied_slider($params = array(), $content = null) {
 
 	wp_enqueue_script('thehanger-slider-script');
+	wp_enqueue_style('thehanger-slider-styles');
 
 	extract(shortcode_atts(array(
 		'full_height' 		  	   	=> 'no',
@@ -136,7 +137,11 @@ add_shortcode('image_slide', 'getbowtied_image_slide');
 add_action( 'wp_enqueue_scripts', 'getbowtied_th_shortcodes_scripts', 99 );
 function getbowtied_th_shortcodes_scripts() {
 
-	$theme = wp_get_theme();
+	wp_register_style('thehanger-slider-styles',
+		plugins_url( 'assets/css/slider.css', dirname(__FILE__) ),
+		NULL
+	);
+
 	wp_register_script('thehanger-slider-script',
 		plugins_url( 'assets/js/slider.js', dirname(__FILE__) ),
 		array('jquery')
