@@ -1,17 +1,17 @@
 <?php
-	/**
-	 * Plugin Name: The Hanger Extender
-	 * Plugin URI: https://thehanger.wp-theme.design/
-	 * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
-	 * Version: 1.6.8
-	 * Author: GetBowtied
-	 * Author URI: https://getbowtied.com
-	 * Requires at least: 5.0
-	 * Tested up to: 5.6
-	 *
-	 * @package  The Hanger Extender
-	 * @author GetBowtied
-	 */
+/**
+ * Plugin Name: The Hanger Extender
+ * Plugin URI: https://thehanger.wp-theme.design/
+ * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
+ * Version: 1.6.9
+ * Author: GetBowtied
+ * Author URI: https://getbowtied.com
+ * Requires at least: 5.0
+ * Tested up to: 5.6
+ *
+ * @package  The Hanger Extender
+ * @author GetBowtied
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

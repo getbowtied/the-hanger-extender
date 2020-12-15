@@ -1,15 +1,15 @@
 <?php
- 
+
 //======================================================
 // Category icon fields.
 //======================================================
 
-function woocommerce_add_category_icon_switch() {	
+function woocommerce_add_category_icon_switch() {
 	$icon = "thehanger-icons-alignment_align-all-1";
 	?>
 
-	<div class="form-field">		
-		<label><?php esc_html_e( 'Icon Type', 'the-hanger-extender' ); ?></label>		
+	<div class="form-field">
+		<label><?php esc_html_e( 'Icon Type', 'the-hanger-extender' ); ?></label>
 		<select name="getbowtied_icon_type">
 			<option value="theme_default" selected><?php esc_html_e('Theme Default', 'the-hanger-extender'); ?></option>
 			<option value="custom_icon"><?php esc_html_e('Custom Icon', 'the-hanger-extender'); ?></option>
@@ -28,7 +28,7 @@ function woocommerce_add_category_icon_switch() {
 					}
 				})
 
-				jQuery(document).ready(function(){
+				jQuery( function(){
 					jQuery('select[name="getbowtied_icon_type').change();
 				})
 			</script>
@@ -52,7 +52,7 @@ function woocommerce_edit_category_icon_switch( $term, $taxonomy ) {
 	<tr class="form-field">
 		<th scope="row" valign="top"><label><?php esc_html_e( 'Icon Type', 'the-hanger-extender' ); ?></label></th>
 		<td>
-			<?php 
+			<?php
 				$icon_type = get_term_meta( $term->term_id, 'getbowtied_icon_type', true );
 			?>
 			<select name="getbowtied_icon_type">
@@ -73,7 +73,7 @@ function woocommerce_edit_category_icon_switch( $term, $taxonomy ) {
 					}
 				})
 
-				jQuery(document).ready(function(){
+				jQuery( function(){
 					jQuery('select[name="getbowtied_icon_type').change();
 				})
 			</script>
@@ -151,7 +151,7 @@ function woocommerce_product_cat_icon_switch_column( $columns, $column, $id ) {
 	}
 
 	return $columns;
-	
+
 }
 
 add_filter( 'manage_product_cat_custom_column', 'woocommerce_product_cat_icon_switch_column', 10, 3 );
@@ -165,18 +165,18 @@ function woocommerce_get_category_icon_switch($cat_ID = false) {
 
 	if ( $cat_ID == false && is_product_category() ){
 		global $wp_query;
-		
+
 		// get the query object
 		$cat = $wp_query->get_queried_object();
-		
+
 		// get the thumbnail id user the term_id
 		$cat_ID = $cat->term_id;
 	}
 
-    $icon = get_term_meta($cat_ID, 'icon_id', true ); 
+    $icon = get_term_meta($cat_ID, 'icon_id', true );
 
     // get the icon
-   return $icon; 
+   return $icon;
 
 }
 

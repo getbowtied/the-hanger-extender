@@ -12,7 +12,7 @@ function th_extender_vendor_scripts() {
 
 	wp_register_script(
 		'swiper',
-		plugins_url( 'swiper/js/swiper.min.js', __FILE__ ),
+		plugins_url( 'swiper/js/swiper-bundle.min.js', __FILE__ ),
 		array(),
 		'6.4.1',
 		true
