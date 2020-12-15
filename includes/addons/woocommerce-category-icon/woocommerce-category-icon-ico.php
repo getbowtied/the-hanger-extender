@@ -1,15 +1,15 @@
 <?php
- 
+
 //======================================================
 // Category icon fields.
 //======================================================
 
-function woocommerce_add_category_icon() {	
+function woocommerce_add_category_icon() {
 	$icon = "thehanger-icons-alignment_align-all-1";
 	?>
 
-	<div class="form-field getbowtied_theme_default"">		
-		<label><?php esc_html_e( 'Icon', 'the-hanger-extender' ); ?></label>		
+	<div class="form-field getbowtied_theme_default"">
+		<label><?php esc_html_e( 'Icon', 'the-hanger-extender' ); ?></label>
 		<input class="widefat icon_picker_input" id="<?php echo esc_attr($icon); ?>" name="icon_picker_input" type="hidden" value="<?php echo esc_attr($icon); ?>">
 		<div id="preview_icon_picker" data-target="#<?php echo esc_attr($icon); ?>" class="button icon-picker <?php echo esc_attr($icon); ?>"></div>
 		<div class="clear"></div>
@@ -86,7 +86,7 @@ function woocommerce_product_cat_icon_columns( $columns ) {
 function woocommerce_product_cat_icon_column( $columns, $column, $id ) {
 
 	if ( $column == 'icon' ) {
-		
+
 		$icon = get_term_meta( $id, 'icon_id', true );
 
 		$columns .= '<i class="' . $icon . '"></i>';
@@ -94,7 +94,7 @@ function woocommerce_product_cat_icon_column( $columns, $column, $id ) {
 	}
 
 	return $columns;
-	
+
 }
 
 
@@ -106,18 +106,18 @@ function woocommerce_get_category_icon($cat_ID = false) {
 
 	if ( $cat_ID == false && is_product_category() ){
 		global $wp_query;
-		
+
 		// get the query object
 		$cat = $wp_query->get_queried_object();
-		
+
 		// get the thumbnail id user the term_id
 		$cat_ID = $cat->term_id;
 	}
 
-    $icon = get_term_meta($cat_ID, 'icon_id', true ); 
+    $icon = get_term_meta($cat_ID, 'icon_id', true );
 
     // get the icon
-   return $icon; 
+   return $icon;
 
 }
 
@@ -142,3 +142,23 @@ function product_cat_icon_column() {
 }
 
 add_action('admin_head', 'product_cat_icon_column');
+
+// =============================================================================
+// Enqueue Admin Scripts
+// =============================================================================
+
+function thehanger_extender_icon_admin_scripts() {
+    wp_enqueue_style(
+		'getbowtied_admin_icon_picker',
+		plugins_url( 'assets/css/icon-picker.css', __FILE__ ),
+		array()
+	);
+
+    wp_enqueue_script(
+        'getbowtied_admin_icon_picker',
+        plugins_url( 'assets/js/icon-picker.js', __FILE__ ),
+        array('jquery')
+    );
+}
+
+add_action( 'admin_enqueue_scripts', 'thehanger_extender_icon_admin_scripts' );
