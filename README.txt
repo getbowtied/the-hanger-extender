@@ -3,7 +3,7 @@ Contributors: getbowtied, vanesareinerth, adrianlbs, traians
 Tags: gutenberg, blocks
 Requires at least: 5.0
 Tested up to: 5.6
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires PHP: 5.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,6 +36,9 @@ Companion plugin for the **The Hanger** theme. Extends the functionality by addi
 - Adds header image and icon options for WooCommerce product categories
 
 == Changelog ==
+
+= 1.7.1 =
+- Small maintenance updates
 
 = 1.7.0 =
 - Small maintenance updates
