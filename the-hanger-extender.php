@@ -75,56 +75,33 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 				// Add Shortcodes to VC
 				if ( defined(  'WPB_VC_VERSION' ) ) {
 
-					add_action( 'init', function() {
-
-						// Add new WP shortcodes to VC
-						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/slider.php' );
-						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/blog-posts.php' );
-						include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/custom-button.php' );
-					});
+					// Add new WP shortcodes to VC
+					include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/slider.php' );
+					include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/blog-posts.php' );
+					include_once( dirname( __FILE__ ) . '/includes/shortcodes/vc/wp/custom-button.php' );
 				}
 			}
 
-			// Gutenberg Blocks
-			add_action( 'init', array( $this, 'gbt_th_gutenberg_blocks' ) );
+			// Blocks
+			include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
 
-			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.1' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.1' ) ) ) {
+			// Widgets
+			include_once( dirname( __FILE__ ) . '/includes/widgets/widget-ecommerce-info.php' );
+			include_once( dirname( __FILE__ ) . '/includes/widgets/widget-product-categories-with-icon.php' );
 
-				// Widgets
-				include_once( dirname( __FILE__ ) . '/includes/widgets/widget-ecommerce-info.php' );
-				include_once( dirname( __FILE__ ) . '/includes/widgets/widget-product-categories-with-icon.php' );
-			}
+			// Customizer
+			include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-th-ext-repeater-control.php' );
+			include_once( dirname( __FILE__ ) . '/includes/customizer/toggle/class-control-toggle.php' );
 
-			if( $theme->template == 'the-hanger' && ( $theme->version >= '1.5.2' || ( !empty($parent_theme) && $parent_theme->version >= '1.5.2' ) ) ) {
+			// Addons
+			include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
+			include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-icon.php' );
 
-				// Customizer
-				include_once( dirname( __FILE__ ) . '/includes/customizer/repeater/class-th-ext-repeater-control.php' );
-				include_once( dirname( __FILE__ ) . '/includes/customizer/toggle/class-control-toggle.php' );
+			// Social Media
+			include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
 
-				// Addons
-				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-header.php' );
-				include_once( dirname( __FILE__ ) . '/includes/addons/woocommerce-category-icon.php' );
-
-				// Social Media
-				include_once( dirname( __FILE__ ) . '/includes/social-media/class-social-media.php' );
-
-				// Social Sharing
-				include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
-			}
-		}
-
-		/**
-		 * Loads Gutenberg blocks
-		 *
-		 * @return void
-		*/
-		public function gbt_th_gutenberg_blocks() {
-
-			if( is_plugin_active( 'gutenberg/gutenberg.php' ) || is_wp_version('>=', '5.0') ) {
-				include_once( dirname( __FILE__ ) . '/includes/gbt-blocks/index.php' );
-			} else {
-				add_action( 'admin_notices', 'gbt_th_theme_warning' );
-			}
+			// Social Sharing
+			include_once( dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php' );
 		}
 
 		/**
@@ -141,4 +118,6 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 	}
 endif;
 
-$thehanger_extender = new TheHangerExtender;
+add_action( 'after_setup_theme', function() {
+    $thehanger_extender = new TheHangerExtender;
+} );
