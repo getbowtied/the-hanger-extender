@@ -1,13 +1,12 @@
 === The Hanger Extender ===
-Contributors: getbowtied, vanesareinerth, adrianlbs, traians
+Contributors: getbowtied
 Tags: gutenberg, blocks
 Requires at least: 5.0
-Tested up to: 5.8.1
-Stable tag: 1.7.3
-Requires PHP: 5.5.0
+Tested up to: 6.4
+Stable tag: 1.8
+Requires PHP: 7.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-~Current Version:1.7.3~
 
 Extends the functionality of The Hanger theme by adding theme specific features.
 
@@ -36,6 +35,10 @@ Companion plugin for the **The Hanger** theme. Extends the functionality by addi
 - Adds header image and icon options for WooCommerce product categories
 
 == Changelog ==
+
+= 1.8 =
+- WordPress 6.4 compatibility updates
+- WooCommerce 8.4 compatibility updates
 
 = 1.7.3 =
 - WordPress 5.8.1 compatibility updates

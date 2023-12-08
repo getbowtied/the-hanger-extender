@@ -3,11 +3,11 @@
  * Plugin Name: The Hanger Extender
  * Plugin URI: https://thehanger.wp-theme.design/
  * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
- * Version: 1.7.3
- * Author: GetBowtied
+ * Version: 1.8
+ * Author: Get Bowtied
  * Author URI: https://getbowtied.com
  * Requires at least: 5.0
- * Tested up to: 5.8.1
+ * Tested up to: 6.4
  *
  * @package  The Hanger Extender
  */
