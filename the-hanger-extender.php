@@ -3,7 +3,7 @@
  * Plugin Name: The Hanger Extender
  * Plugin URI: https://thehanger.wp-theme.design/
  * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
- * Version: 2.1
+ * Version: 2.2
  * Author: Get Bowtied
  * Author URI: https://getbowtied.com
  * Requires at least: 6.0
@@ -16,18 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! function_exists( 'is_plugin_active' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-}
-
-global $theme;
-
-$version = ( isset( get_plugin_data( __FILE__ )['Version'] ) && ! empty( get_plugin_data( __FILE__ )['Version'] ) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
-define( 'TH_EXT_VERSION', $version );
-
-/*
- * Plugin Updater
- */
+// Plugin Updater
 require dirname( __FILE__ ) . '/core/updater/plugin-update-checker.php';
 $my_update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/master/core/updater/assets/plugin.json',
@@ -44,6 +33,7 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 
 		private static $instance = null;
 		private static $initialized = false;
+		private $theme_slug;
 
 		private function __construct() {
 			// Empty constructor - initialization happens in init_instance
@@ -53,6 +43,15 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			if (self::$initialized) {
 				return;
 			}
+
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
+			
+			global $theme;
+			
+			$version = ( isset( get_plugin_data( __FILE__ )['Version'] ) && ! empty( get_plugin_data( __FILE__ )['Version'] ) ) ? get_plugin_data( __FILE__ )['Version'] : '1.0';
+			define( 'TH_EXT_VERSION', $version );
 
 			$theme = wp_get_theme();
 			$parent_theme = $theme->parent();
