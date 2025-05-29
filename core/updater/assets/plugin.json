@@ -1,19 +1,19 @@
 {
 	"name": "The Hanger Extender",
-	"version": "3.2",
+	"version": "3.3",
 	"download_url": "https://getbowtied.github.io/repository/plugins/the-hanger-extender/the-hanger-extender.zip",
 
 	"homepage": "https://1.envato.market/getbowtied-to-the-hanger",
 	"requires": "6.0",
 	"tested": "6.8",
-	"last_updated": "2025-05-08 12:00:00",
+	"last_updated": "2025-05-29 12:00:00",
 
 	"author": "Get Bowtied",
 	"author_homepage": "https://getbowtied.com",
 
 	"sections": {
 		"description": "<p>Companion plugin for the <b>The Hanger</b> theme. Extends the functionality by adding theme specific features.</p><h4>Gutenberg Blocks:</h4><ul><li>Image Slider</li><li>Blog Posts</li><li>Social Media Profiles</li></ul><h4>WPBakery Page Builder Elements:</h4><ul><li>Slider</li><li>Blog Posts</li><li>Custom Button</li></ul><h4>Widgets:</h4><ul><li>eCommerce Info</li><li>Product Categories with Icon</li></ul><h4>Features:</h4><ul><li>Adds 'Social Media' section in Customizer for easy management of links to social media profiles</li><li>Adds social sharing options for the product page and blog post</li><li>Display recently purchased products in My Account / Dashboard</li><li>Adds header image and icon options for WooCommerce product categories</li></ul>",
-		"changelog": "<h4>3.2</h4><ul><li>WordPress 6.8.1 compatibility updates</li><li>WooCommerce 9.8.4 compatibility updates</li></ul>"
+		"changelog": "<h4>3.3</h4><ul><li>WooCommerce 9.8.5 compatibility updates</li></ul>"
 	},
 
 	"icons" : {
