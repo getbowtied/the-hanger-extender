@@ -3,7 +3,7 @@
  * Plugin Name: The Hanger Extender
  * Plugin URI: https://thehanger.getbowtied.com
  * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
- * Version: 3.4
+ * Version: 3.5
  * Author: Get Bowtied
  * Author URI: https://getbowtied.com
  * Requires at least: 6.0
@@ -102,7 +102,7 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			// Social Sharing.
 			include_once dirname( __FILE__ ) . '/includes/social-sharing/class-social-sharing.php';
 
-			if ( is_admin() ) {
+			if ( is_admin() || ( defined('WP_CLI') && WP_CLI ) ) {
 				global $gbt_dashboard_params;
 				$gbt_dashboard_params = array(
 					'gbt_theme_slug' => $this->theme_slug,
