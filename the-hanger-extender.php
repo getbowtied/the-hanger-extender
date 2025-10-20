@@ -13,12 +13,12 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit;
 }
 
-// Plugin Updater
-require dirname( __FILE__ ) . '/core/updater/plugin-update-checker.php';
-$my_update_checker = Puc_v4_Factory::buildUpdateChecker(
+require 'dashboard/inc/puc/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+$plugin_update_checker = PucFactory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/getbowtied/the-hanger-extender/master/core/updater/assets/plugin.json',
 	__FILE__,
 	'the-hanger-extender'
