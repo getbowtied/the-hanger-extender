@@ -3,7 +3,7 @@
  * Plugin Name: The Hanger Extender
  * Plugin URI: https://thehanger.getbowtied.com
  * Description: Extends the functionality of The Hanger with theme specific shortcodes and page builder elements.
- * Version: 10.0.1
+ * Version: 10.0.6
  * Author: Get Bowtied
  * Author URI: https://getbowtied.com
  * Requires at least: 6.0
@@ -42,8 +42,6 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 			if (self::$initialized) {
 				return;
 			}
-
-			require_once dirname( __FILE__ ) . '/core/theme-updater/class-gbt-extender-theme-updater.php';
 
 			if ( ! function_exists( 'is_plugin_active' ) ) {
 				require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -122,6 +120,9 @@ if ( ! class_exists( 'TheHangerExtender' ) ) :
 		}
 	}
 endif;
+
+// Theme updater: newest library version among active companions wins on plugins_loaded.
+require_once dirname( __FILE__ ) . '/core/theme-updater/loader.php';
 
 add_action( 'after_setup_theme', function() {
     TheHangerExtender::init();
